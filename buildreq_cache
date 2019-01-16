@@ -1,0 +1,15 @@
+342
+cppcheck
+desktop-file-utils
+elfutils-dev
+freetype-dev
+glibc-bin
+groff
+libXaw-dev
+libXcursor-dev
+libXinerama-dev
+ncurses-dev
+pkgconfig(x11)
+pkgconfig(xext)
+pkgconfig(xpm)
+pkgconfig(xt)

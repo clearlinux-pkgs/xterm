@@ -1,0 +1,13 @@
+The NEWS file was generated from xterm.log.html, which serves as the changelog
+for xterm.
+--------------------------------------------------------------------------------
+                            Patch #342 - 2019/01/03
+
+     * limit  mouse-button  events to 11 buttons in the original protocol,
+       and 15 in the extended mouse-protocol (patch by Martin Hostettler).
+     * correct  calculation  for  buttons  past  11  in mouse-codes sample
+       script (patch by Martin Hostettler).
+     * disable  a supplementary check added in patch #341 which interferes
+       with  using fontconfig to select different-sized bitmap fonts (Arch
+       #61237).
+
