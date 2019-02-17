@@ -1,5 +1,7 @@
 Configure miss: mawk
 Configure miss: lint
+Configure miss: cppcheck
+Configure miss: splint
 Configure miss: ncurses/curses.h
 Configure miss: ncurses/term.h
 Configure miss: sys/ptem.h
@@ -25,6 +27,7 @@ Configure miss: if you want to link with neXT Athena library
 Configure miss: if you want to link with Athena-Plus library
 Configure miss: usable Xaw/Xmu package
 Configure miss: IRIX 6.5 baud-rate redefinitions
+Configure miss: XcursorGetTheme in -lXcursor
 Configure miss: XKB Bell extension
 Configure miss: imake
 Configure miss: man2html

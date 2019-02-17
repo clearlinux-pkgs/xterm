@@ -1,29 +1,45 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #343 - 2019/01/13
+                            Patch #344 - 2019/02/12
 
-     * modify run-tic.sh to prefer ncurses6 over ncurses5, when available.
-     * add  COPYING file, and dummy "check" makefile rule for testing Arch
-       packages.
-     * add/update package scripts for FreeBSD and NetBSD, for testing.
-     * update  tables  of  combining  and  ambiguous-width  characters  in
-       wcwidth.c based on Unicode 11.0.0.
-     * modify  xterm-new  sample  terminfo  entry to correspond to ncurses
-       6.1, using the SGR 1006 mouse protocol.
-     * improve  manual  page  discussion  of  selection  ownership  versus
-       highlighting (prompted by discussion with Martin Hostettler).
-     * restore/repair keepClipboard feature which was broken by changes in
-       patch #338 (report by Martin Hostettler).
-     * improve documentation for deleteIsDEL resource.
-     * modify  DECRQM  response for private mode 1037 to account for cases
-       where the resource deleteIsDEL is initially neither true nor false,
-       but  dependent  upon  the  keyboard type (report/analysis by Martin
-       Hostettler).
-     * clear pointers for pattern/fontset after destroying their data when
-       switching facename with an escape sequence (report by Robert Ross).
-     * modify  logic  for  TrueType fallback fonts to match the sort-order
-       used by fc-match (report by Robert Ross).
-     * add  resource  setting  limitFontsets which can be used to limit or
-       disable the new TrueType fontset feature (request by Robert Ross).
+     * add  ASCII  escape to default for disallowedPasteControls (prompted
+       by discussion with Martin Hostettler).
+     * fix typo in ctlseqs.ms (Robert Ross).
+     * implement  DEC  Cyrillic  NRCS  (based  on  screenshots  of  vttest
+       provided by Markus Schmidt).
+     * correct control returning sixel geometry maximum versus actual size
+       (patch by Ben Wong).
+     * improve  manual  page  for  resize  to clarify that resize does not
+       execute   the   shell  commands  which  it  generates  for  setting
+       environment variables.
+     * improve  memory-management  for  parser, to handle response strings
+       that  might  occur  with  ENQ  or when SRM mode is active (patch by
+       Martin Hostettler).
+     * change  Comment  text  in  uxterm's  desktop  file to work around a
+       limitation   of   GNOME's   GIO   application   (issue  #940).  The
+       documentation reads:
+
+     Searches desktop files for ones that match search_string.
+     The  return value is an array of strvs. Each strv contains a list of
+     applications  that  matched  search_string  with an equal score. The
+     outer  list  is  sorted by score so that the first strv contains the
+     best-matching applications, and so on. The algorithm for determining
+     matches is undefined and may change at any time.
+     * a  check  of zIconBeep resource was removed in double-buffer fix in
+       patch  #334. That is used to decide whether to handle struct-notify
+       events.  When  xterm does handle the events, it may negotiate a new
+       window-size  with the window manager. In that case, the limitResize
+       resource  setting  limited  the new window-size to the screen-size.
+       Amended  that  by  eliminating the limit for this special case when
+       double-buffer  is configured, and restoring the check for zIconBeep
+       when double-buffer is not configured (Debian #919475).
+     * disallow  recursion  which  could  happen  if a user configures the
+       answerbackString  resource  with  the ENQ code and experiments with
+       that code when SRM is enabled (report by by Martin Hostettler).
+     * add remaining credits in COPYING file.
+     * modify  run-tic.sh  to  check  if  it  is using an older version of
+       ncurses  which does not support large terminal descriptions, and if
+       so,  remove  a  non-essential  feature to keep within the 4096-byte
+       legacy limit.
 

@@ -5,25 +5,24 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 343
-Release  : 2
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-343.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-343.tgz
-Source99 : ftp://ftp.invisible-island.net/xterm/xterm-343.tgz.asc
+Version  : 344
+Release  : 3
+URL      : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz
+Source0  : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz
+Source99 : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
-License  : X11
+License  : ICU X11
 Requires: xterm-bin = %{version}-%{release}
 Requires: xterm-data = %{version}-%{release}
+Requires: xterm-license = %{version}-%{release}
 Requires: xterm-man = %{version}-%{release}
-BuildRequires : cppcheck
 BuildRequires : desktop-file-utils
 BuildRequires : elfutils-dev
 BuildRequires : freetype-dev
 BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : libXaw-dev
-BuildRequires : libXcursor-dev
 BuildRequires : libXinerama-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
@@ -62,6 +61,7 @@ for the program and its resource class, to avoid conflict with other packages.
 Summary: bin components for the xterm package.
 Group: Binaries
 Requires: xterm-data = %{version}-%{release}
+Requires: xterm-license = %{version}-%{release}
 Requires: xterm-man = %{version}-%{release}
 
 %description bin
@@ -76,6 +76,14 @@ Group: Data
 data components for the xterm package.
 
 
+%package license
+Summary: license components for the xterm package.
+Group: Default
+
+%description license
+license components for the xterm package.
+
+
 %package man
 Summary: man components for the xterm package.
 Group: Default
@@ -85,20 +93,22 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-343
+%setup -q -n xterm-344
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548204937
+export SOURCE_DATE_EPOCH=1550428254
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1548204937
+export SOURCE_DATE_EPOCH=1550428254
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/xterm
+cp package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/package_debian_copyright
 %make_install
 
 %files
@@ -127,6 +137,10 @@ rm -rf %{buildroot}
 /usr/share/pixmaps/xterm-color_48x48.xpm
 /usr/share/pixmaps/xterm_32x32.xpm
 /usr/share/pixmaps/xterm_48x48.xpm
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/xterm/package_debian_copyright
 
 %files man
 %defattr(0644,root,root,0755)
