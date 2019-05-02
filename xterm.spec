@@ -6,23 +6,27 @@
 #
 Name     : xterm
 Version  : 344
-Release  : 3
+Release  : 4
 URL      : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz
 Source0  : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz
 Source99 : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz.asc
-Summary  : X Terminal Emulator
+Summary  : X terminal emulator (development version)
 Group    : Development/Tools
-License  : ICU X11
+License  : HPND ICU MIT MIT-Opengroup X11
 Requires: xterm-bin = %{version}-%{release}
 Requires: xterm-data = %{version}-%{release}
 Requires: xterm-license = %{version}-%{release}
 Requires: xterm-man = %{version}-%{release}
+BuildRequires : cppcheck
+BuildRequires : ctags
 BuildRequires : desktop-file-utils
 BuildRequires : elfutils-dev
 BuildRequires : freetype-dev
 BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : libXaw-dev
+BuildRequires : libXcursor-dev
+BuildRequires : libXft-dev
 BuildRequires : libXinerama-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
@@ -62,7 +66,6 @@ Summary: bin components for the xterm package.
 Group: Binaries
 Requires: xterm-data = %{version}-%{release}
 Requires: xterm-license = %{version}-%{release}
-Requires: xterm-man = %{version}-%{release}
 
 %description bin
 bin components for the xterm package.
@@ -100,14 +103,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550428254
-%configure --disable-static
+export SOURCE_DATE_EPOCH=1556826152
+export LDFLAGS="${LDFLAGS} -fno-lto"
+%configure --disable-static --enable-freetype
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1550428254
+export SOURCE_DATE_EPOCH=1556826152
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
+cp COPYING %{buildroot}/usr/share/package-licenses/xterm/COPYING
 cp package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/package_debian_copyright
 %make_install
 
@@ -140,6 +145,7 @@ cp package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/packag
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/xterm/COPYING
 /usr/share/package-licenses/xterm/package_debian_copyright
 
 %files man

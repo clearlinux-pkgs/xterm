@@ -1,5 +1,6 @@
 344
 cppcheck
+ctags
 desktop-file-utils
 elfutils-dev
 freetype-dev
