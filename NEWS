@@ -1,45 +1,67 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #344 - 2019/02/12
+                            Patch #345 - 2019/05/14
 
-     * add  ASCII  escape to default for disallowedPasteControls (prompted
-       by discussion with Martin Hostettler).
-     * fix typo in ctlseqs.ms (Robert Ross).
-     * implement  DEC  Cyrillic  NRCS  (based  on  screenshots  of  vttest
-       provided by Markus Schmidt).
-     * correct control returning sixel geometry maximum versus actual size
-       (patch by Ben Wong).
-     * improve  manual  page  for  resize  to clarify that resize does not
-       execute   the   shell  commands  which  it  generates  for  setting
-       environment variables.
-     * improve  memory-management  for  parser, to handle response strings
-       that  might  occur  with  ENQ  or when SRM mode is active (patch by
-       Martin Hostettler).
-     * change  Comment  text  in  uxterm's  desktop  file to work around a
-       limitation   of   GNOME's   GIO   application   (issue  #940).  The
-       documentation reads:
-
-     Searches desktop files for ones that match search_string.
-     The  return value is an array of strvs. Each strv contains a list of
-     applications  that  matched  search_string  with an equal score. The
-     outer  list  is  sorted by score so that the first strv contains the
-     best-matching applications, and so on. The algorithm for determining
-     matches is undefined and may change at any time.
-     * a  check  of zIconBeep resource was removed in double-buffer fix in
-       patch  #334. That is used to decide whether to handle struct-notify
-       events.  When  xterm does handle the events, it may negotiate a new
-       window-size  with the window manager. In that case, the limitResize
-       resource  setting  limited  the new window-size to the screen-size.
-       Amended  that  by  eliminating the limit for this special case when
-       double-buffer  is configured, and restoring the check for zIconBeep
-       when double-buffer is not configured (Debian #919475).
-     * disallow  recursion  which  could  happen  if a user configures the
-       answerbackString  resource  with  the ENQ code and experiments with
-       that code when SRM is enabled (report by by Martin Hostettler).
-     * add remaining credits in COPYING file.
-     * modify  run-tic.sh  to  check  if  it  is using an older version of
-       ncurses  which does not support large terminal descriptions, and if
-       so,  remove  a  non-essential  feature to keep within the 4096-byte
-       legacy limit.
+     * updated FreeBSD test-package from recent /usr/ports scripts.
+     * workaround  in run-tic.sh for HPUX, whose mktemp prints the name of
+       a temporary directory without creating it.
+     * add  left/right  margin capabilities to terminfo, since the default
+       terminal emulation is VT420 (suggested by Thomas Wolff).
+     * modify  treatment  of  reverseVideo for dynamic colors to make text
+       foreground/background consistent with the cursor color (prompted by
+       discussion with Ben Wong, lsix #20).
+     * modify  button-handling  to  make  SGR button-release distinct from
+       button-press  for  button-codes  starting  with 8 (patch by Mikulas
+       Patocka).
+     * add  aliases  for the sgr push/pop controls to work around language
+       limitations of C# (request by Dan Thompson).
+     * correct  a  typo  in  setDirectFG,  which  could  cause  setting of
+       indexed-color after a direct-color to be ignored.
+     * add  resource  useBorderClipping  as  an alternative to useClipping
+       (request by Robert Ross).
+     * improve   logic   for   displaying  xterm's  built-in  line-drawing
+       characters  vs missing glyphs, e.g., for U+2409 to U+240D (patch by
+       Robert Ross).
+     * add vttests/sgrPushPop2.pl to illustrate how selective pushes work,
+       as  well  as  to  demonstrate  push/pop  of the various color types
+       supported by xterm.
+     * fix a special case in XTPOPSGR where direct-colors were not checked
+       as a dependency of indexed-colors, contrary to documentation.
+     * reduce buffer-flushes for OSC 4 and OSC 5 color-queries, as well as
+       in the queries for dynamic colors.
+       Note:  this change makes the reply for OSC 5 use the “5” in the
+       response; formerly it was mapped to ”4” after adding the maximum
+       number of colors.
+     * modify  vttests/query-color.pl  to  demonstrate multiple queries in
+       one request.
+     * update   tables   of  combining  and  unknown-width  characters  in
+       wcwidth.c based on Unicode 12.0.0.
+     * modify response for OSC 5 to be consistent with documentation.
+     * add vttests/query-dynamic.pl
+     * modify  vttests/query-color.pl  to  accept  bold,  underline, etc.,
+       keywords to decide whether to use OSC 5 rather than OSC 4.
+     * modify cursor coloring to avoid a case where the cursor matched the
+       foreground  color  while  the  text  was displayed in reverse-video
+       (report by Nuno Silva).
+     * fix  an  inconsistency  in  X10  mouse  responses  from  patch #342
+       changes; the legacy protocol supports only buttons 1-3.
+     * reduce the number of buffer-flushes for tcap-query batches.
+     * modify tcapquery.pl to demonstrate batch queries with -q option.
+     * increase   response-buffer   size,  and  make  it  configurable  as
+       limitResponse (prompted by discussion with Stephen P Wall).
+     * modified configure script:
+          + check/workaround  for  non-POSIX  manipulation  of  predefined
+            symbols
+          + check for updated X Toolkit, which uses const.
+     * update config.guess, config.sub
+     * provide  for  secondary-selection, overlooked in patch #338 (report
+       by Emile LeBlanc).
+     * documentation errata (patch by Larry Hynes).
+     * improve pointer-checks in Tekproc.c
+     * revise  solution  for  Debian  #919475,  to allow for struct-notify
+       events  occurring  as a side-effect of toggling to/from full-screen
+       mode.
+     * window's   border-size  was  incorrectly  added  to  position  when
+       maximizing window (report by Gary Langshaw).
 

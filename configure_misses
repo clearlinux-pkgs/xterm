@@ -1,5 +1,6 @@
 Configure miss: mawk
 Configure miss: lint
+Configure miss: if the POSIX test-macros are already defined
 Configure miss: ncurses/curses.h
 Configure miss: ncurses/term.h
 Configure miss: sys/ptem.h

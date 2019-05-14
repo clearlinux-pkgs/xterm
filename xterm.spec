@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 344
-Release  : 4
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz
-Source99 : ftp://ftp.invisible-island.net/xterm/xterm-344.tgz.asc
-Summary  : X terminal emulator (development version)
+Version  : 345
+Release  : 5
+URL      : ftp://ftp.invisible-island.net/xterm/xterm-345.tgz
+Source0  : ftp://ftp.invisible-island.net/xterm/xterm-345.tgz
+Source99 : ftp://ftp.invisible-island.net/xterm/xterm-345.tgz.asc
+Summary  : X Terminal Emulator
 Group    : Development/Tools
 License  : HPND ICU MIT MIT-Opengroup X11
 Requires: xterm-bin = %{version}-%{release}
@@ -21,16 +21,13 @@ BuildRequires : cppcheck
 BuildRequires : ctags
 BuildRequires : desktop-file-utils
 BuildRequires : elfutils-dev
-BuildRequires : freetype-dev
 BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : libXaw-dev
 BuildRequires : libXcursor-dev
 BuildRequires : libXft-dev
-BuildRequires : libXinerama-dev
 BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
-BuildRequires : pkgconfig(xext)
 BuildRequires : pkgconfig(xpm)
 BuildRequires : pkgconfig(xt)
 
@@ -96,20 +93,26 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-344
+%setup -q -n xterm-345
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556826152
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1557843325
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static --enable-freetype
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1556826152
+export SOURCE_DATE_EPOCH=1557843325
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp COPYING %{buildroot}/usr/share/package-licenses/xterm/COPYING
