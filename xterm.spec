@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 345
-Release  : 5
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-345.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-345.tgz
-Source99 : ftp://ftp.invisible-island.net/xterm/xterm-345.tgz.asc
-Summary  : X Terminal Emulator
+Version  : 346
+Release  : 6
+URL      : ftp://ftp.invisible-island.net/xterm/xterm-346.tgz
+Source0  : ftp://ftp.invisible-island.net/xterm/xterm-346.tgz
+Source99 : ftp://ftp.invisible-island.net/xterm/xterm-346.tgz.asc
+Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : HPND ICU MIT MIT-Opengroup X11
 Requires: xterm-bin = %{version}-%{release}
@@ -21,7 +21,6 @@ BuildRequires : cppcheck
 BuildRequires : ctags
 BuildRequires : desktop-file-utils
 BuildRequires : elfutils-dev
-BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : libXaw-dev
 BuildRequires : libXcursor-dev
@@ -93,14 +92,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-345
+%setup -q -n xterm-346
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557843325
+export SOURCE_DATE_EPOCH=1559688387
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -112,7 +112,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1557843325
+export SOURCE_DATE_EPOCH=1559688387
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp COPYING %{buildroot}/usr/share/package-licenses/xterm/COPYING
