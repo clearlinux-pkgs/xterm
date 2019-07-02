@@ -1,18 +1,52 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #346 - 2019/05/27
+                            Patch #347 - 2019/06/30
 
-     * update  description of the “default” setting for the renderFont
-       resource to match the behavior in patch #261 (Debian #862042).
-     * account  for  internalBorder in useBorderClipping (report by Robert
-       Ross).
-     * update  table  of  unknown-width  characters  in wcwidth.c based on
-       Unicode 12.1.0 (prompted by discussion with Robert Ross).
-     * improve description of DECSCL versus S7C1T and S8C1T in ctlseqs.ms.
-     * improve  consistency  between  CSI3t  and  CSI13t,  accounting  for
-       differences  between some window managers' handling of EMWH extents
-       (report by Bram Moolenaar).
-     * fix  a  sign-extension  when  reporting  offscreen  window position
-       (report by Bram Moolenaar).
+     * fix a few minor bugs found with Coverity.
+     * improve  double-buffering  for  scrollbars  combined  with scrolled
+       text;  add  bufferedFPS  resource  to  control  the maximum rate of
+       screen updates (report by Mike Thornburg).
+     * improve fixes for DECCRA handling of double-width characters (patch
+       by Martin Hostettler).
+     * improve  discussion  of  ECMA-48's  typographical  error  for SD in
+       ctlseqs.ms (prompted by report by Martin Hostettler).
+     * correct  off-by-one  in parameter limit-check for DECCRA (report by
+       Martin Hostettler).
+     * modify  saveCellData to handle case where double-width character is
+       partially copied; that should be blanked (report/testcase by Thomas
+       Wolff).
+     * add  resource  buffered to allow enabling/disabling double-buffered
+       mode.
+     * two   fixes   for  the  double-buffer  configuration,  prompted  by
+       MacPorts'  switch  to  double-buffering  (patch  by Mike Thornburg,
+       MacPorts #58313):
+          + ensure  that  the  needSwap flag is set after drawing TrueType
+            text
+          + corrected the drawable-parameter used for the bar-cursor
+     * modify  ScrnRefresh to ignore a case where the left/right halves of
+       a   double-width   character  have  been  set  to  different  video
+       attributes.   The   attribute   to   use   is   in   the  left-half
+       (report/testcase by Thomas Wolff).
+     * correct a limit-check for DECCRA in case the target lies off-screen
+       (report/testcase by Thomas Wolff).
+     * documentation errata (report by Thomas Wolff).
+     * reset flags including wraparound and reverse-wrap when switching to
+       VT52 mode, while noting that DEC's standard documention leaves that
+       behavior undefined (report by Thomas Wolff).
+     * ensure  that  italic font is turned off on hard/soft resets (report
+       by Martin Hostettler).
+     * improve  responsiveness  to  X  events while processing HTML or SVG
+       dumps (report by Martin Hostettler).
+     * replace  logic  in  wcwidth.c for detecting double-width characters
+       with  binary-search table generated using updated uniset (report by
+       Robert Ross).
+     * add  test-driver for wcwidth.c to simplify comparison with system's
+       wcwidth.
+     * ensure  that  window-manager name comparisons work when active-icon
+       is  enabled,  since  CSI13t  uses  the  window-manager  name  (Arch
+       #62818).
+     * trim  a  stray  “experimental” in one of the comments about the
+       tcap-query  feature,  which has been a supported feature since 2008
+       (see patch #238).
 
