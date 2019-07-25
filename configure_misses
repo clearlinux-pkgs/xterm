@@ -35,7 +35,7 @@ Configure miss: if meta should send ESC
 Configure miss: private terminfo-directory
 Configure miss: if you want to compile-in icon data
 Configure miss: if you want to allow spawning new xterms
-Configure miss: if you want to use double-buffering
+Configure miss: if you want to enable double-buffering in default resources
 Configure miss: usable Xft/fontconfig package
 Configure miss: if you want support for HP-style function keys
 Configure miss: if you want support for SCO-style function keys
