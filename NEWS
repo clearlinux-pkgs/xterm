@@ -1,44 +1,43 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #348 - 2019/07/22
+                            Patch #349 - 2019/09/22
 
-     * update  window-manager  hints  when  exiting  Tek4014  mode (Debian
-       #932569, patch by Jonathan Irwin).
-     * fix a misformatted printf in report-sgr.pl.
-     * add    configure    check    for    termios   types,   to   improve
-       compiler-warnings.
-     * ensure  that  when  resetting  margins, to also reset DECLRMM. This
-       affects  DECCOLM,  DECALN  (although  DEC  STD  070  mentions  only
-       top/bottom margins), and DECSTR.
-     * corrected  order  of  reset/move  when setting DECCOLM, and make it
-       more  consistent by always resetting margins, rather than only when
-       the mode is changed (report by James Holderness).
-     * compile-in double-buffer support by default, changing the configure
-       option  to  set  the default resource value for buffered to true or
-       false.
-     * take   in  account  the  reverse-video  state  when  computing  the
-       filler-color  used  when  clearing  the  screen in double-buffering
-       configuration.
-     * correct   logic   for  filtering  scrollbar-updates  when  buffered
-       resource is compiled-in but not enabled (report by Paul Lampert).
-     * improve   state   saved/restored  for  cursor-save  and  SGR  stack
-       features.
-     * improve description of 1006 and 1005 mouse modes, to avoid implying
-       that they use character-parameters (report by Bryan Christ).
-     * explain  in  ctlseqs.ms  that  some of the numeric keypad keys were
-       xterm   extensions   rather   than  VT100/VT220  terminal  features
-       (prompted by discussion with Thomas Wolff).
-     * explain  in ctlseqs.ms how the DEC windowing extension is supported
-       by xterm.
-     * add  28  rectangular  editing to the primary response (suggested by
-       Thomas Wolff).
-     * fix a typo, improve wording in ctlseqs.ms (Thomas Wolff).
-     * fix internal column-parameter when SL or SR is used with left/right
-       margins (patch by Thomas Wolff).
-     * fix  off-by-one in VT52 graphics character mapping (patch by Thomas
-       Wolff).
-     * use  _X_UNUSED,  etc., when available as a fallback for GCC_UNUSED,
-       etc., to reduce compiler warnings when building with imake.
-     * update config.sub
+     * add  graphic  context  to  support  bold+italics  (patch  by  Quinn
+       Strahl).
+     * document window properties in the manual page.
+     * improve title-string feature:
+          + if  any of allowC1Printable, utf8Title or titleModes hint that
+            an  application  might  send  a title-string encoded in UTF-8,
+            check  if  that  is  the  case,  and  if  it is recodable into
+            ISO-8859-1, use that for the ICCCM-style title.
+          + check  if  the title given by a control sequence happens to be
+            already  encoded  in  UTF-8, to avoid double-encoding (FreeBSD
+            #240393).
+          + Make sameName resource work for the EWMH titles.
+          + Modify  menu-state of utf8Title to be consistent with the utf8
+            source,  i.e.,  setting the EWMH properties automatically when
+            UTF-8 is active.
+     * reorganize  text-drawing  to  make it possible to investigate using
+       Xft  to  implement VT100-style double-sized characters. While doing
+       this,  made  a  workaround  for  apparent  Xft  bug which loses its
+       drawable state when switching from 132 to 80 columns.
+     * improve  font-warning  messages by showing which are derived rather
+       than  directly  from resource settings (suggested by Tomas Korbar).
+       Also filter repeated font-warning messages, to accommodate broken X
+       configurations.
+     * fix  an  inconsistency  between  failure  to load derived wide font
+       versus  failure  to  load derived wide-bold font (Redhat #1679790).
+       That relies upon the “:unscaled” property which is broken in some
+       distributions  (however,  recent  Debian and the BSDs such as MacOS
+       work).
+     * updated  autoconf-252  to check X11R7 include/lib directories found
+       on some older configurations.
+     * set  a  graphic-context for border when double-buffering is active;
+       to  prevent  the  border  color  from  changing  when  switching to
+       reverse-video.
+     * build-fix  for  --disable-ziconbeep,  which conflicted with the new
+       double-buffer configuration (report by Brian Lindholm).
+     * fix  loop-limit  for  lookup of fullscreen resource broken in xterm
+       #347 (report by Scott Bertilson).
 

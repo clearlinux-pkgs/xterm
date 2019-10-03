@@ -26,6 +26,7 @@ Configure miss: if you want to link with neXT Athena library
 Configure miss: if you want to link with Athena-Plus library
 Configure miss: usable Xaw/Xmu package
 Configure miss: IRIX 6.5 baud-rate redefinitions
+Configure miss: stropts.h
 Configure miss: XKB Bell extension
 Configure miss: imake
 Configure miss: man2html

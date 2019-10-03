@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 348
-Release  : 8
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-348.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-348.tgz
-Source99 : ftp://ftp.invisible-island.net/xterm/xterm-348.tgz.asc
+Version  : 349
+Release  : 9
+URL      : ftp://ftp.invisible-island.net/xterm/xterm-349.tgz
+Source0  : ftp://ftp.invisible-island.net/xterm/xterm-349.tgz
+Source1 : ftp://ftp.invisible-island.net/xterm/xterm-349.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
 License  : HPND ICU MIT MIT-Opengroup X11
@@ -93,14 +93,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-348
+%setup -q -n xterm-349
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564066070
+export SOURCE_DATE_EPOCH=1570130913
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -113,7 +114,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1564066070
+export SOURCE_DATE_EPOCH=1570130913
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp COPYING %{buildroot}/usr/share/package-licenses/xterm/COPYING
