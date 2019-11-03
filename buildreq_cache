@@ -1,4 +1,4 @@
-349
+350
 cppcheck
 ctags
 desktop-file-utils
@@ -14,3 +14,4 @@ pkgconfig(x11)
 pkgconfig(xext)
 pkgconfig(xpm)
 pkgconfig(xt)
+util-linux

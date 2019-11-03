@@ -1,43 +1,37 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #349 - 2019/09/22
+                            Patch #350 - 2019/11/02
 
-     * add  graphic  context  to  support  bold+italics  (patch  by  Quinn
-       Strahl).
-     * document window properties in the manual page.
-     * improve title-string feature:
-          + if  any of allowC1Printable, utf8Title or titleModes hint that
-            an  application  might  send  a title-string encoded in UTF-8,
-            check  if  that  is  the  case,  and  if  it is recodable into
-            ISO-8859-1, use that for the ICCCM-style title.
-          + check  if  the title given by a control sequence happens to be
-            already  encoded  in  UTF-8, to avoid double-encoding (FreeBSD
-            #240393).
-          + Make sameName resource work for the EWMH titles.
-          + Modify  menu-state of utf8Title to be consistent with the utf8
-            source,  i.e.,  setting the EWMH properties automatically when
-            UTF-8 is active.
-     * reorganize  text-drawing  to  make it possible to investigate using
-       Xft  to  implement VT100-style double-sized characters. While doing
-       this,  made  a  workaround  for  apparent  Xft  bug which loses its
-       drawable state when switching from 132 to 80 columns.
-     * improve  font-warning  messages by showing which are derived rather
-       than  directly  from resource settings (suggested by Tomas Korbar).
-       Also filter repeated font-warning messages, to accommodate broken X
-       configurations.
-     * fix  an  inconsistency  between  failure  to load derived wide font
-       versus  failure  to  load derived wide-bold font (Redhat #1679790).
-       That relies upon the “:unscaled” property which is broken in some
-       distributions  (however,  recent  Debian and the BSDs such as MacOS
-       work).
-     * updated  autoconf-252  to check X11R7 include/lib directories found
-       on some older configurations.
-     * set  a  graphic-context for border when double-buffering is active;
-       to  prevent  the  border  color  from  changing  when  switching to
-       reverse-video.
-     * build-fix  for  --disable-ziconbeep,  which conflicted with the new
-       double-buffer configuration (report by Brian Lindholm).
-     * fix  loop-limit  for  lookup of fullscreen resource broken in xterm
-       #347 (report by Scott Bertilson).
+     * modify html/svg dump to not ignore zero'd/blank cells.
+     * align terminfo file with ncurses, e.g., add xterm+osc104 block.
+     * improve  discussion  of  modifyOtherKeys  in  manual  page  and  in
+       ctlseqs.ms.
+     * add vttests/modify-keys.pl script to illustrate the modifyOtherKeys
+       resource (prompted by discussion with Bram Moolenaar).
+     * various improvements to ctlseqs.ms, as part of autogenerating links
+       for the website.
+     * update  manual  page  default  for saveLines resource default value
+       (Branden Robinson, Debian #913815).
+     * add  command-line  option  -report-xres  to  show the values of the
+       VT100 widget X resources when initialization is complete.
+     * add   a   control   sequence  which,  like  tcap-query,  allows  an
+       application  to  inspect  most  X  resource  settings  of the VT100
+       widget.
+     * adjust   some  optional  features  to  enable  them  in  the  imake
+       configuration as they would be by default via the configure script.
+     * add null-pointer checks to improve error recovery when bitmap fonts
+       are missing or corrupt (report by Jonne Ransijn).
+     * correct  the condition for deleting the EWMH window-title property,
+       i.e., if UTF-8 titles are disabled, rather than if an update to the
+       EWHM property found no change (report by Sven Joachim).
+     * build-fix  for  the  case  when  configure  --enable-trace  is used
+       without --enable-warnings (report by Sven Joachim).
+     * fix a few minor bugs found with Coverity.
+     * add  a check in property_to_string to avoid translating UTF8_STRING
+       or  COMPOUND_TEXT into Latin-1 when UTF-8 encoding is active, e.g.,
+       when  pushing onto the title-stack while switching to the alternate
+       screen.
+     * build-fix for the --disable-doublechars configure option (report by
+       Brian Lindholm).
 

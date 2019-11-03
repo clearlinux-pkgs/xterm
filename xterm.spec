@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 349
-Release  : 9
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-349.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-349.tgz
-Source1 : ftp://ftp.invisible-island.net/xterm/xterm-349.tgz.asc
+Version  : 350
+Release  : 10
+URL      : ftp://ftp.invisible-island.net/xterm/xterm-350.tgz
+Source0  : ftp://ftp.invisible-island.net/xterm/xterm-350.tgz
+Source1 : ftp://ftp.invisible-island.net/xterm/xterm-350.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
 License  : HPND ICU MIT MIT-Opengroup X11
@@ -21,7 +21,6 @@ BuildRequires : cppcheck
 BuildRequires : ctags
 BuildRequires : desktop-file-utils
 BuildRequires : elfutils-dev
-BuildRequires : glibc-bin
 BuildRequires : groff
 BuildRequires : libXaw-dev
 BuildRequires : libXcursor-dev
@@ -30,6 +29,7 @@ BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xpm)
 BuildRequires : pkgconfig(xt)
+BuildRequires : util-linux
 
 %description
 xterm is the standard terminal emulator for the X Window System.
@@ -93,14 +93,14 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-349
+%setup -q -n xterm-350
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570130913
+export SOURCE_DATE_EPOCH=1572793583
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -114,11 +114,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1570130913
+export SOURCE_DATE_EPOCH=1572793583
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp COPYING %{buildroot}/usr/share/package-licenses/xterm/COPYING
-cp package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/package_debian_copyright
+cp %{_builddir}/xterm-350/COPYING %{buildroot}/usr/share/package-licenses/xterm/003e5c142502750f196158b48dfa954295adeca5
+cp %{_builddir}/xterm-350/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/69db24e505c19c953711609cc710e2b4071fad80
 %make_install
 
 %files
@@ -150,8 +150,8 @@ cp package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/packag
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xterm/COPYING
-/usr/share/package-licenses/xterm/package_debian_copyright
+/usr/share/package-licenses/xterm/003e5c142502750f196158b48dfa954295adeca5
+/usr/share/package-licenses/xterm/69db24e505c19c953711609cc710e2b4071fad80
 
 %files man
 %defattr(0644,root,root,0755)
