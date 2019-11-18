@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 350
-Release  : 10
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-350.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-350.tgz
-Source1 : ftp://ftp.invisible-island.net/xterm/xterm-350.tgz.asc
+Version  : 351
+Release  : 11
+URL      : ftp://ftp.invisible-island.net/xterm/xterm-351.tgz
+Source0  : ftp://ftp.invisible-island.net/xterm/xterm-351.tgz
+Source1 : ftp://ftp.invisible-island.net/xterm/xterm-351.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
 License  : HPND ICU MIT MIT-Opengroup X11
@@ -29,7 +29,6 @@ BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xpm)
 BuildRequires : pkgconfig(xt)
-BuildRequires : util-linux
 
 %description
 xterm is the standard terminal emulator for the X Window System.
@@ -93,14 +92,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-350
+%setup -q -n xterm-351
+cd %{_builddir}/xterm-351
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572793583
+export SOURCE_DATE_EPOCH=1574050583
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -114,11 +114,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1572793583
+export SOURCE_DATE_EPOCH=1574050583
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-350/COPYING %{buildroot}/usr/share/package-licenses/xterm/003e5c142502750f196158b48dfa954295adeca5
-cp %{_builddir}/xterm-350/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/69db24e505c19c953711609cc710e2b4071fad80
+cp %{_builddir}/xterm-351/COPYING %{buildroot}/usr/share/package-licenses/xterm/003e5c142502750f196158b48dfa954295adeca5
+cp %{_builddir}/xterm-351/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/69db24e505c19c953711609cc710e2b4071fad80
 %make_install
 
 %files

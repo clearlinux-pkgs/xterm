@@ -1,3 +1,5 @@
+Configure miss: if this is really Intel C compiler
+Configure miss: if this is really Clang C compiler
 Configure miss: mawk
 Configure miss: lint
 Configure miss: if the POSIX test-macros are already defined
@@ -18,6 +20,7 @@ Configure miss: if you want to run xterm setuid to a given user
 Configure miss: if you want to run xterm setgid to match utmp/utmpx file
 Configure miss: if you want to link with utempter
 Configure miss: if external errno exists
+Configure miss: if we may use the mockbuild group
 Configure miss: if we should define SYSV
 Configure miss: if this is an SVR4 system
 Configure miss: if you want to link with Xaw 3d library
