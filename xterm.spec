@@ -7,9 +7,9 @@
 Name     : xterm
 Version  : 351
 Release  : 11
-URL      : ftp://ftp.invisible-island.net/xterm/xterm-351.tgz
-Source0  : ftp://ftp.invisible-island.net/xterm/xterm-351.tgz
-Source1 : ftp://ftp.invisible-island.net/xterm/xterm-351.tgz.asc
+URL      : https://invisible-mirror.net/archives/xterm/xterm-351.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-351.tgz
+Source1 : https://invisible-mirror.net/archives/xterm/xterm-351.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
 License  : HPND ICU MIT MIT-Opengroup X11
