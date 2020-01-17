@@ -5,17 +5,16 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 351
-Release  : 11
-URL      : https://invisible-mirror.net/archives/xterm/xterm-351.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-351.tgz
-Source1 : https://invisible-mirror.net/archives/xterm/xterm-351.tgz.asc
+Version  : 352
+Release  : 12
+URL      : https://invisible-mirror.net/archives/xterm/xterm-352.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-352.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-352.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
-License  : HPND ICU MIT MIT-Opengroup X11
+License  : X11
 Requires: xterm-bin = %{version}-%{release}
 Requires: xterm-data = %{version}-%{release}
-Requires: xterm-license = %{version}-%{release}
 Requires: xterm-man = %{version}-%{release}
 BuildRequires : cppcheck
 BuildRequires : ctags
@@ -26,9 +25,7 @@ BuildRequires : libXaw-dev
 BuildRequires : libXcursor-dev
 BuildRequires : libXft-dev
 BuildRequires : ncurses-dev
-BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xpm)
-BuildRequires : pkgconfig(xt)
 
 %description
 xterm is the standard terminal emulator for the X Window System.
@@ -61,7 +58,6 @@ for the program and its resource class, to avoid conflict with other packages.
 Summary: bin components for the xterm package.
 Group: Binaries
 Requires: xterm-data = %{version}-%{release}
-Requires: xterm-license = %{version}-%{release}
 
 %description bin
 bin components for the xterm package.
@@ -75,14 +71,6 @@ Group: Data
 data components for the xterm package.
 
 
-%package license
-Summary: license components for the xterm package.
-Group: Default
-
-%description license
-license components for the xterm package.
-
-
 %package man
 Summary: man components for the xterm package.
 Group: Default
@@ -92,15 +80,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-351
-cd %{_builddir}/xterm-351
+%setup -q -n xterm-352
+cd %{_builddir}/xterm-352
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574050583
+export SOURCE_DATE_EPOCH=1579279211
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -114,11 +102,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1574050583
+export SOURCE_DATE_EPOCH=1579279211
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-351/COPYING %{buildroot}/usr/share/package-licenses/xterm/003e5c142502750f196158b48dfa954295adeca5
-cp %{_builddir}/xterm-351/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/69db24e505c19c953711609cc710e2b4071fad80
 %make_install
 
 %files
@@ -147,11 +132,6 @@ cp %{_builddir}/xterm-351/package/debian/copyright %{buildroot}/usr/share/packag
 /usr/share/pixmaps/xterm-color_48x48.xpm
 /usr/share/pixmaps/xterm_32x32.xpm
 /usr/share/pixmaps/xterm_48x48.xpm
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/xterm/003e5c142502750f196158b48dfa954295adeca5
-/usr/share/package-licenses/xterm/69db24e505c19c953711609cc710e2b4071fad80
 
 %files man
 %defattr(0644,root,root,0755)

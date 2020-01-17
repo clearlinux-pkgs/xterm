@@ -1,30 +1,38 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #351 - 2019/11/17
+                            Patch #352 - 2020/01/16
 
-     * correct  logic  in property_to_string for deciding when to fallback
-       from  UTF-8  decoding  to ISO-8859-1 decoding, broken in xterm #350
-       (FreeBSD #241961).
-     * add -report-icons to help-message.
-     * improved autoconf macros:
-          + CF_ADD_LIBS:  the  change to filter out duplicates caused this
-            to append rather than prepend. revise to fix that.
-          + CF_GCC_VERSION and CF_GCC_WARNINGS: move checks to distinguish
-            icc/clang   from   gcc   from  the  macro  which  handles  the
-            --enable-warnings  option,  to make this work without-warnings
-            for the inline-checks.
-     * update config.guess, config.sub
-     * correct  status  in  XTGETXRES  replies  when  the resource was not
-       found.
-     * fix some gcc, cppcheck, clang and coverity warnings.
-     * guard call to RequestResize from the struct-notify event handler to
-       prevent recursion in the Xft+buffered workaround in some cases when
-       doing  manual  resizing  rather  than resizing via escape sequences
-       (reports by Stefan Assman, Mike Thornburg).
-     * amend the workaround for Xft+buffered blanking by moving the switch
-       to  bitmap-fonts to account for differences in font metrics between
-       bitmap- and TrueType-fonts (report by Stefan Assmann).
-     * improve  the  note  on  the  xterm-rep  terminfo entry (prompted by
-       discussion with Sven Joachim).
+     * adjust  fontsize  data  to handle a minor inconsistency from recent
+       Xft  versions  (Debian  #880407,  adapted  from  patch  by  Vincent
+       Lefevre).
+     * add  a  table  to  the  manual page description of forceBoxChars to
+       alert   the   reader   to   the   special   characters  aside  from
+       “line-drawing” which are drawn directly when this resource is set
+       (Debian #931305).
+     * improve  checkXft  logic  which  attempts  to  detect  fonts  whose
+       max-advance-width is inconsistent with the actual glyph widths. For
+       some   fonts,  it  is  necessary  to  check  additional  characters
+       (report/analysis by Jan Engelhardt).
+     * improve  configure-checks  for  X  headers  and libraries on recent
+       MacOS, which has moved those files under /usr/X11.
+     * improve  portability  of  iconify/deiconify  feature by taking into
+       account   some   window   managers   which   manipulate   the  EWMH
+       _NET_WM_STATE property, adding/removing _NET_WM_STATE_HIDDEN rather
+       than  actually  minimizing  the window (prompted by discussion with
+       Jörg Breitbart).
+     * improve  workaround  from  patch  #287  for the -iconic option when
+       configured  with  toolbar  by  postponing  the  extra  request  for
+       minimizing the window to the end of menu-initialization.
+     * modify   xevents   special-case   for   mouse-events   to   include
+       button-events   so  that  the  meta  key  by  itself  can  generate
+       button-events (report/analysis by Mattias Engdegård).
+     * amend  SGR-stack  change  from  patch  #348  to  not associate bold
+       attribute with background color (report by Nicholas Marriott).
+     * fix copy/paste error in manual page (patch by Larry Hynes).
+     * add   definitions   in   xterm_io.h   so  that  GNU/Hurd  will  use
+       posix_openpty (patch by Samuel Thibault).
+     * build-fix in debug-tracing, for esctest.
+     * updated autoconf macros
+     * update config.guess
 
