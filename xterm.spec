@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 352
-Release  : 12
-URL      : https://invisible-mirror.net/archives/xterm/xterm-352.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-352.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-352.tgz.asc
+Version  : 353
+Release  : 13
+URL      : https://invisible-mirror.net/archives/xterm/xterm-353.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-353.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-353.tgz.asc
 Summary  : X Terminal Emulator
 Group    : Development/Tools
 License  : X11
@@ -80,15 +80,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-352
-cd %{_builddir}/xterm-352
+%setup -q -n xterm-353
+cd %{_builddir}/xterm-353
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579279211
+export SOURCE_DATE_EPOCH=1580752579
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -102,7 +102,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1579279211
+export SOURCE_DATE_EPOCH=1580752579
 rm -rf %{buildroot}
 %make_install
 
