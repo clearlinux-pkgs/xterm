@@ -1,24 +1,55 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #353 - 2020/02/01
+                            Patch #354 - 2020/04/26
 
-     * amend  change  in  patch #352 for button-events to fix a case where
-       some  followup  events were not processed soon enough (report/patch
-       by Jimmy Aguilar Mena).
-     * handle  MappingNotify  X  event, to improve recovery when switching
-       keyboard  configurations using xkbcomp (prompted by discussion with
-       Frank  Mosch,  Debian  #661295).  There  is  more work needed here,
-       possibly in the X libraries.
-     * improve  discussion  of mouse-mode in ctlseqs.ms (suggested by Igor
-       van den Hoven).
-     * further  improve  checks  for  Xft  max-advance-width  to take into
-       account  fonts  which use two cells for ambiguous width characters.
-       Also  improve  the  time  used  for  these  checks (reports by Yuri
-       Pankov, Frank Mosch).
-     * fix  a  few  spelling  errors reported by codespell (report by Jens
-       Schleusener).
-     * modify  run-tic.sh  to  prefer development version of ncurses since
-       changes  to  terminfo  file  in  patch  #345 rely upon bug-fixes in
-       ncurses (prompted by discussion with Will Senn).
+     * work   around   performance   problems   of   XDrawImageString  and
+       XDrawImageString16 functions (Debian #954845).
+     * add  a  control  sequence  which  reports xterm's version (patch by
+       Nicholas Marriott, mintty #881).
+     * temporarily  set  numeric  locale  category  to  "C"  when  parsing
+       resources,  so that scaleHeight and faceSize settings do not depend
+       on locale (Debian #820803).
+     * improve  DA/DA2 response by ensuring that the decTerminalID maps to
+       one of the known identifiers, as well as providing DA2 response for
+       VT241 and VT382.
+     * terminfo improvements:
+          + add  (my)  comments  from  ncurses  which  explain  the keypad
+            layouts.
+          + add vt52+keypad from ncurses
+          + use improved xm example for xterm+x11mouse, xterm+sm+1006 from
+            ncurses 6.2 terminfo.src
+     * two  fixes  for  left/right  wheel  mouse  event  reporting (Debian
+       #954730):
+          + filter identical button-events
+          + correct  order of button-range versus protocol type (see patch
+            #345)
+     * change “make check” makefile-rule to use test-drivers for charclass
+       and wcwidth data.
+     * quiet “did not find a usable xxx TrueType font” warnings by making
+       fontWarnings apply to these messages (report by Jim Rees).
+     * improve  reinitialization  of  parameter  list  (report/testcase by
+       James Holderness).
+     * temporarily  set numeric locale category to "C" when formatting SVG
+       or  XHTML  screendumps,  to  make  the  radix separator used in RGB
+       values consistent (adapted from patch by George Kouryachy).
+     * add  resource  forceXftHeight  to  control  whether workaround from
+       Debian #880407 is used.
+     * apply  updated  ascent/descent in workaround from Debian #880407 to
+       fix  a  1-pixel  gap in built-in vertical lines (report/testcase by
+       Stefan Assman).
+     * improve round-off of scaling for built-in line-drawing (prompted by
+       discussion with Stefan Assman).
+     * adjust fonts in svg-icon files to accommodate reduced functionality
+       of new pango (report/analysis by YOKOTA Hiroshi).
+     * improve configure check for X Toolkit library.
+     * correct    Y-coordinate   transformation   in   ClearCurBackground,
+       overlooked  in  changes  for  patch  #334 (report/analysis by Chuck
+       Silvers).
+     * remove  --vendor  option  from  test-packages'  install  of desktop
+       files; the feature is badly broken in gnome-shell.
+     * modify  uxterm  to  make  it  possible to select nonstandard locale
+       C.UTF-8, e.g, if the user's locale is set to “C” (Debian #940626).
+     * re-save/tweak “.svg” icon-files to work around breakage in toolset
+       since the files were created in patch #283.
 
