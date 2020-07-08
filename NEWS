@@ -1,8 +1,46 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #356 - 2020/05/02
+                            Patch #357 - 2020/07/05
 
-     * revise  fix  for  Debian #954730, which interfered with wheel mouse
-       events (report by Gabriele Balducci).
+     * several  minor  optimizations  for  the  ReGIS  and SIXEL features,
+       improving performance by 10%.
+     * add  resource  decGraphicsID  to allow displaying graphics when the
+       emulation   level  would  ordinarily  disallow  this  (prompted  by
+       discussion with Thomas Wolff).
+     * add  control  sequences  for  fast  switching  of  color  palettes:
+       XTPUSHCOLORS, XTPOPCOLORS, XTREPORTCOLORS
+     * amend  change  for  soft-hyphen  from patch #328 to avoid stripping
+       replacement-characters  which  would  be  shown  with  malformed or
+       overlong UTF-8 input.
+     * corrected  an error-handling case in decodeUtf8, matching a similar
+       fix in patch #268 (report/patch by Dan Gohman).
+     * add a test-driver for ptydata.c
+     * minor cleanup of macros (adapted from patch by Walter Harms).
+     * fix some errata in ctlseqs.ms (report by Thomas Wolff).
+     * allow  immediate  repaint-on-palette-changed if double-buffering is
+       enabled.
+     * deprecate  codes  10/11  in  sgr  push  controls, changing those to
+       30/31, to avoid confusion with sgr 10-19.
+     * modify  SGR parameter handling to stop if an unrecognized parameter
+       is encountered, to guard against malformed or nonstandard sequences
+       (report by Bram Moolenaar).
+     * modify  DECERA  color  for consistency with other erasures/clearing
+       (report by Thomas Wolff).
+     * ECH should not be masked by DECSCA (report by Thomas Wolff).
+     * extend DECFRA and REP to accept any “graphic” character rather than
+       just Latin1, etc. (report by Thomas Wolff).
+     * add  -C  option  to  256colors2.pl and 88colors2.pl, to demonstrate
+       mixed semicolon/colon separators which are implied by ECMA-48.
+     * update sample terminfo to reflect the documentation improvements.
+     * update  description  of  88/256/direct color in ctlseqs.ms to point
+       out  that  using  semicolons  is  a  deprecated legacy feature, and
+       standard  terminal  applications  should  use  colons  (prompted by
+       discussion with Bram Moolenaar).
+     * modify   configure-check   for  tgetent  to  conditionally  include
+       termcap.h,  enabling  configuration  using  clang's pedantic-errors
+       option  (report  by  Dennis  Clarke).  See  Other  Compatibility in
+       ncurses' curs_termcap(3X).
+     * remove some unnecessary pointer checks (patch by Walter Harms).
+     * accept terminal-id and add DA response for VT131, VT132.
 
