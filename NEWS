@@ -1,11 +1,27 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #358 - 2020/07/12
+                            Patch #359 - 2020/08/17
 
-     * correct logic for decodeTerminalID changes in patch #357 (report by
-       "Chartreuse").
-     * modify  makefile to use plink.sh when linking test-programs, to fix
-       build when using pcre (report by H Merijn Brand)
-     * build-fix for test_ptydata program (patch by H Merijn Brand)
+     * add  special  case  in  WriteText  to allow colors 8-15 to override
+       colorBDMode (patch by Ingo Brückl).
+     * add  utf8Weblike  resource,  to  provide  an  alternate  scheme for
+       handling  ill-formed  UTF-8  sequences  (adapted  from patch by Dan
+       Gohman).
+     * improve  computation  for the number of lines needed to scroll-up a
+       SIXEL graphic (report/patch by Ben Wong).
+     * correct  manpage description for default value of disallowWindowOps
+       from changes in xterm #331 (patch by Ben Wong).
+     * correct a loop starting-point in refresh_graphics from optimization
+       in patch #358 changes (report by Ben Wong).
+     * add a new mouse mode 1016, which uses the same format as mode 1006,
+       but sends the mouse's position in pixels (suggested by Igor van den
+       Hoven).
+     * fix an issue from patch #338 changes where only the first selection
+       buffer  specified  in  the  request  would  be updated using OSC 52
+       (patch by Michael Gulick).
+     * modify  makefile/scripts  to  allow  DESTDIR  to  prefix the target
+       directory for desktop-file-install (report by Fred Heitkamp).
+     * enable SIXEL feature by default.
+     * update config.guess, config.sub
 
