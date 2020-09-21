@@ -57,6 +57,7 @@ Configure miss: luit
 Configure miss: if you want dynamic-abbreviation support
 Configure miss: if you want DECterm Locator support
 Configure miss: if you want ReGIS graphics support
+Configure miss: if you want sixel screen dump support
 Configure miss: if you want debugging traces
 Configure miss: if you want to use dmalloc for testing
 Configure miss: if you want to use dbmalloc for testing
