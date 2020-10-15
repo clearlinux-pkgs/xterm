@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 360
-Release  : 19
-URL      : https://invisible-mirror.net/archives/xterm/xterm-360.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-360.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-360.tgz.asc
+Version  : 361
+Release  : 20
+URL      : https://invisible-mirror.net/archives/xterm/xterm-361.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-361.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-361.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : X11
@@ -20,6 +20,7 @@ Requires: xterm-man = %{version}-%{release}
 BuildRequires : cppcheck
 BuildRequires : ctags
 BuildRequires : desktop-file-utils
+BuildRequires : elfutils-dev
 BuildRequires : groff
 BuildRequires : libXaw-dev
 BuildRequires : libXcursor-dev
@@ -89,15 +90,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-360
-cd %{_builddir}/xterm-360
+%setup -q -n xterm-361
+cd %{_builddir}/xterm-361
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1600710985
+export SOURCE_DATE_EPOCH=1602779344
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -110,11 +111,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1600710985
+export SOURCE_DATE_EPOCH=1602779344
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-360/COPYING %{buildroot}/usr/share/package-licenses/xterm/71ce39fb161bc54c7e016d3471f257e34922b49c
-cp %{_builddir}/xterm-360/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/7ac5fbb4271b18cfd035c7259d16b7229ff1fe85
+cp %{_builddir}/xterm-361/COPYING %{buildroot}/usr/share/package-licenses/xterm/71ce39fb161bc54c7e016d3471f257e34922b49c
+cp %{_builddir}/xterm-361/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/7ac5fbb4271b18cfd035c7259d16b7229ff1fe85
 %make_install
 
 %files

@@ -1,7 +1,8 @@
-360
+361
 cppcheck
 ctags
 desktop-file-utils
+elfutils-dev
 groff
 libXaw-dev
 libXcursor-dev
