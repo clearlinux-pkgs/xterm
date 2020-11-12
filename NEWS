@@ -1,32 +1,25 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #361 - 2020/10/14
+                            Patch #362 - 2020/11/11
 
-     * treat  the  return  value of strerror as readonly (patch by Philipp
-       Klaus Krause).
-     * modify  event-handling  in  CopyWait  to  work around hanging while
-       writing  large  amounts  of  text to an active icon and at the same
-       time iconifying/deiconifying (report by Dave Kemper).
-     * initialize double-buffer for active-icon window.
-     * improve  manual  page description of scrollbar resources (report by
-       Brian Lindholm).
-     * correct  ifdef for menu entry for active-icon, when initializing it
-       with toolbar configuration.
-     * add  preprocessor  option to makefile to set internal definition of
-       pixmaps  directory  to  match  the  install-configuration  (FreeBSD
-       #250036).
      * cleanup of calls to free, removing checks for null (Walter Harms).
-     * add fallback actions pointer-button and pointer-motion which handle
-       events   for   the   mouse   control-sequences   protocol   if  the
-       select-related       translations       are       omitted      with
-       *omitTranslation:select (prompted by discussion with "Ergus")
-     * amend  rule  for  using  shift-key  to  override mouse-protocol for
-       select/paste  to  limit  that  feature  to  mouse-buttons which are
-       actually bound to select/paste actions (prompted by discussion with
-       "Ergus").
-     * corrected  mapping  in  special case for repainting wrap-marks when
-       viewing the scrollback area.
-     * use  separate  GCs for showWrapMarks feature, to work around cursor
-       coloring change in patch #345 (report by Paulo Silva de Alíbano).
+     * improved   mouse-button  reporting  (prompted  by  discussion  with
+       Stephane Chazelas)
+          + narrow  the scope of the change for shift-key in patch #361 to
+            make it apply only when the modifyOtherKeys resource is set to
+            2 (i.e., “program mode”). Also, when checking the shift-key,
+            ignore modifiers other than shift, control and “meta”
+          + use    the   alt/meta   modifier   information   obtained   in
+            VTInitModifiers  to  replace  a hard-coded mod1 used to detect
+            “Meta” for mouse-button responses.
+     * reduce SIGWINCH's sent to the client by filtering out duplicates.
+     * improve display when scaleHeight is greater than 1:
+          + the  text-cursor  is  vertically-centered on the current line,
+            rather  than  only extending below the current line (report by
+            Manu Chaturvedi).
+          + the  built-in  line-drawing  characters  extend  to the scaled
+            cell-height.
+     * fill-in  special  case  for  motion-events to match the changes for
+       shift-key in pointer-button events from patch #361.
 
