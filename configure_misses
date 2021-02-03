@@ -1,5 +1,6 @@
 Configure miss: if this is really Intel C compiler
 Configure miss: if this is really Clang C compiler
+Configure miss: ggrep
 Configure miss: mawk
 Configure miss: lint
 Configure miss: if the POSIX test-macros are already defined

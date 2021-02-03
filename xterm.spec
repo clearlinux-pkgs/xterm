@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 363
-Release  : 22
-URL      : https://invisible-mirror.net/archives/xterm/xterm-363.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-363.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-363.tgz.asc
+Version  : 364
+Release  : 23
+URL      : https://invisible-mirror.net/archives/xterm/xterm-364.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-364.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-364.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
-License  : X11
+License  : MIT X11
 Requires: xterm-bin = %{version}-%{release}
 Requires: xterm-data = %{version}-%{release}
 Requires: xterm-license = %{version}-%{release}
@@ -90,15 +90,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-363
-cd %{_builddir}/xterm-363
+%setup -q -n xterm-364
+cd %{_builddir}/xterm-364
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609285718
+export SOURCE_DATE_EPOCH=1612383892
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -111,11 +111,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1609285718
+export SOURCE_DATE_EPOCH=1612383892
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-363/COPYING %{buildroot}/usr/share/package-licenses/xterm/71ce39fb161bc54c7e016d3471f257e34922b49c
-cp %{_builddir}/xterm-363/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/7ac5fbb4271b18cfd035c7259d16b7229ff1fe85
+cp %{_builddir}/xterm-364/COPYING %{buildroot}/usr/share/package-licenses/xterm/2a211dc0248a187c771d8183ba139328f0ad014b
+cp %{_builddir}/xterm-364/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/6a5d4ed854eca449f5fa350c5cb2781014541d61
 %make_install
 
 %files
@@ -147,8 +147,8 @@ cp %{_builddir}/xterm-363/package/debian/copyright %{buildroot}/usr/share/packag
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xterm/71ce39fb161bc54c7e016d3471f257e34922b49c
-/usr/share/package-licenses/xterm/7ac5fbb4271b18cfd035c7259d16b7229ff1fe85
+/usr/share/package-licenses/xterm/2a211dc0248a187c771d8183ba139328f0ad014b
+/usr/share/package-licenses/xterm/6a5d4ed854eca449f5fa350c5cb2781014541d61
 
 %files man
 %defattr(0644,root,root,0755)
