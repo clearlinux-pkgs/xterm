@@ -1,12 +1,20 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #365 - 2021/02/03
+                            Patch #366 - 2021/02/10
 
-     * amend fix for “word” selection in patch #364 to limit that to the
-       insert-selectable  action,  which  reads data from the screen. This
-       restores the interactive behavior where double-clicking on a “word”
-       would  make  subsequent  selection  extensions  by words as well as
-       suppressing   some  boundary-checks  (report  by  David  Wolfskill,
-       FreeBSD #253225).
+     * correct   a  compiler-warning  fix  in  patch  #352  which  allowed
+       sign-extension of coordinate values (report by "CismonX").
+     * correct  upper-limit for selection buffer, accounting for combining
+       characters (report/testcase by Tavis Ormandy).
+     * with alwaysHighlight true, xterm does not properly track focus. The
+       screen->select   FOCUS  flag  remains  always  on,  which  prevents
+       bellIsUrgent  from  working, as the urgent WM_HINT flag is only set
+       in  setXUrgency()  when  the  window  is  not  focused. Fix this by
+       updating screen->select in unselectwindow() regardless of the value
+       of always_highlight (patch by Jiri Bohac).
+     * improve  fix  for  interaction between SRM and ENQ (report by Grant
+       Taylor).
+     * build-fix   for  --with-Xaw3dxft,  needed  when  --with-toolbar  is
+       omitted (report by Jimmy Olgeni, Emanuel Haupt).
 
