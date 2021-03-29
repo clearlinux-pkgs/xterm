@@ -1,10 +1,11 @@
-366
+367
 cppcheck
 ctags
 desktop-file-utils
 elfutils-dev
 groff
 libXaw-dev
-libXcursor-dev
 ncurses-dev
+pkgconfig(x11)
 pkgconfig(xpm)
+pkgconfig(xt)
