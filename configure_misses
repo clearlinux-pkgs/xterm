@@ -9,6 +9,10 @@ Configure miss: ggrep
 Configure miss: if alt should send ESC
 Configure miss: if backarrow-key should be treated as erase
 Configure miss: if external errno exists
+Configure miss: if external sys_errlist exists
+Configure miss: if external sys_errlist is declared
+Configure miss: if external sys_nerr exists
+Configure miss: if external sys_nerr is declared
 Configure miss: if icon theme should be used
 Configure miss: if meta should send ESC
 Configure miss: if rpath-hack should be disabled

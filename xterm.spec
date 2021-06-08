@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x702353E0F7E48EDB (dickey@invisible-island.net)
 #
 Name     : xterm
-Version  : 367
-Release  : 26
-URL      : https://invisible-mirror.net/archives/xterm/xterm-367.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-367.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-367.tgz.asc
+Version  : 368
+Release  : 27
+URL      : https://invisible-mirror.net/archives/xterm/xterm-368.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-368.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-368.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : MIT X11
@@ -91,15 +91,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-367
-cd %{_builddir}/xterm-367
+%setup -q -n xterm-368
+cd %{_builddir}/xterm-368
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1617039921
+export SOURCE_DATE_EPOCH=1623165862
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -112,11 +112,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1617039921
+export SOURCE_DATE_EPOCH=1623165862
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-367/COPYING %{buildroot}/usr/share/package-licenses/xterm/2a211dc0248a187c771d8183ba139328f0ad014b
-cp %{_builddir}/xterm-367/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/6a5d4ed854eca449f5fa350c5cb2781014541d61
+cp %{_builddir}/xterm-368/COPYING %{buildroot}/usr/share/package-licenses/xterm/2a211dc0248a187c771d8183ba139328f0ad014b
+cp %{_builddir}/xterm-368/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/6a5d4ed854eca449f5fa350c5cb2781014541d61
 %make_install
 
 %files
