@@ -1,13 +1,13 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #375 - 2022/10/23
+                            Patch #376 - 2022/11/16
 
-     * improve  error-recovery  when  setting  a bitmap font for the VT100
-       window,  e.g.,  in  case  OSC 50  failed, restoring the most recent
-       valid  font  so  that  a  subsequent  OSC 50 reports this correctly
-       (report by David Leadbeater).
-     * exclude  MC_XDG_OPEN  from environment variables trimmed on startup
-       (report by Gabor Hauzer).
-     * check for null pointer in isSelect() (report by Column Paget).
+     * modify configure script to always check for gcc attributes,
+     * update install-sh.
+     * fix parsing of result -u in vttests/halves.pl.
+     * add a note in ctlseqs.ms about compatibility of TBC.
+     * fix a copy/paste error in manual (patch by Grady Martin).
+     * add  null-pointer checks in x_strcasecmp and x_strncasecmp, to help
+       with error-recovery for a missing font (Debian #1022942).
 

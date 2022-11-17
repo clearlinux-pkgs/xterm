@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 375
-Release  : 34
-URL      : https://invisible-mirror.net/archives/xterm/xterm-375.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-375.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-375.tgz.asc
+Version  : 376
+Release  : 35
+URL      : https://invisible-mirror.net/archives/xterm/xterm-376.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-376.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-376.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : MIT X11
@@ -91,15 +91,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-375
-cd %{_builddir}/xterm-375
+%setup -q -n xterm-376
+cd %{_builddir}/xterm-376
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666639491
+export SOURCE_DATE_EPOCH=1668703812
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -112,7 +112,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1666639491
+export SOURCE_DATE_EPOCH=1668703812
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/686848157be92045c2693736fe71dbb6a457b289 || :
