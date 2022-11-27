@@ -1,13 +1,17 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #376 - 2022/11/16
+                            Patch #377 - 2022/11/25
 
-     * modify configure script to always check for gcc attributes,
-     * update install-sh.
-     * fix parsing of result -u in vttests/halves.pl.
-     * add a note in ctlseqs.ms about compatibility of TBC.
-     * fix a copy/paste error in manual (patch by Grady Martin).
-     * add  null-pointer checks in x_strcasecmp and x_strncasecmp, to help
-       with error-recovery for a missing font (Debian #1022942).
+     * add  control  sequences  for  reporting  the  current  state of the
+       modified   keys   options   (XTQMODKEYS)   and   allowed/disallowed
+       operations   (XTQALLOWED),   (prompted   by  discussion  with  Bram
+       Moolenaar).
+     * amend  modifyOtherKeys  case  2 to distinguish the escape character
+       with  modifiers,  e.g., shift-escape, from a plain escape character
+       (suggested by Bram Moolenaar).
+     * improve  parsing and error-recovery in the case where a list of X11
+       bitmap fonts is given in the -fn and related options.
+     * change  default  for  xftTrackMemUsage to false, because libXft has
+       does not handle certain fonts.
 
