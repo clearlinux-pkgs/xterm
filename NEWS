@@ -1,17 +1,22 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #377 - 2022/11/25
+                            Patch #378 - 2023/01/09
 
-     * add  control  sequences  for  reporting  the  current  state of the
-       modified   keys   options   (XTQMODKEYS)   and   allowed/disallowed
-       operations   (XTQALLOWED),   (prompted   by  discussion  with  Bram
-       Moolenaar).
-     * amend  modifyOtherKeys  case  2 to distinguish the escape character
-       with  modifiers,  e.g., shift-escape, from a plain escape character
-       (suggested by Bram Moolenaar).
-     * improve  parsing and error-recovery in the case where a list of X11
-       bitmap fonts is given in the -fn and related options.
-     * change  default  for  xftTrackMemUsage to false, because libXft has
-       does not handle certain fonts.
+     * improve  descriptions  of  XTQMODKEYS  and  XTQALLOWED  features in
+       ctlseqs.ms (reports by Bram Moolenaar, Thomas Wolff).
+     * add bracketed+paste and report+version building blocks to terminfo,
+       from ncurses 6.4
+     * improve   check   for   unsupported  formatting  characters,  e.g.,
+       zero-width space, to properly ignore them (report by Thomas Wolff).
+     * improve/document  error-checking  for  some  of  the controls which
+       return   responses:   DECRQSS,   XTGETXRES,   XTSETTCAP,  XTGETTCAP
+       (prompted by discussion with David Leadbeater).
+     * improve  limit-checks  for fallback font cache (report by Dimitrije
+       Erdeljan).
+     * improve check for too-wide glyph in fallback font by allowing xterm
+       to  continue searching for a suitable font rather than just failing
+       on  the first. Also add limitFontWidth to allow changing the amount
+       by  which  a  glyph  must extend outside the font's bounding box to
+       disallow it.
 

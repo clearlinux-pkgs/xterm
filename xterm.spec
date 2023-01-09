@@ -5,17 +5,16 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 377
-Release  : 36
-URL      : https://invisible-mirror.net/archives/xterm/xterm-377.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-377.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-377.tgz.asc
+Version  : 378
+Release  : 37
+URL      : https://invisible-mirror.net/archives/xterm/xterm-378.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-378.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-378.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
-License  : MIT X11
+License  : X11
 Requires: xterm-bin = %{version}-%{release}
 Requires: xterm-data = %{version}-%{release}
-Requires: xterm-license = %{version}-%{release}
 Requires: xterm-man = %{version}-%{release}
 BuildRequires : cppcheck
 BuildRequires : ctags
@@ -28,6 +27,9 @@ BuildRequires : ncurses-dev
 BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xpm)
 BuildRequires : pkgconfig(xt)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 xterm is the standard terminal emulator for the X Window System.
@@ -60,7 +62,6 @@ for the program and its resource class, to avoid conflict with other packages.
 Summary: bin components for the xterm package.
 Group: Binaries
 Requires: xterm-data = %{version}-%{release}
-Requires: xterm-license = %{version}-%{release}
 
 %description bin
 bin components for the xterm package.
@@ -74,14 +75,6 @@ Group: Data
 data components for the xterm package.
 
 
-%package license
-Summary: license components for the xterm package.
-Group: Default
-
-%description license
-license components for the xterm package.
-
-
 %package man
 Summary: man components for the xterm package.
 Group: Default
@@ -91,32 +84,29 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-377
-cd %{_builddir}/xterm-377
+%setup -q -n xterm-378
+cd %{_builddir}/xterm-378
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669554296
+export SOURCE_DATE_EPOCH=1673294793
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 %configure --disable-static --enable-freetype
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1669554296
+export SOURCE_DATE_EPOCH=1673294793
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/686848157be92045c2693736fe71dbb6a457b289 || :
-cp %{_builddir}/xterm-%{version}/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/c6e2b160c6474097e940845a879577a9ab37ba39 || :
 %make_install
 
 %files
@@ -145,11 +135,6 @@ cp %{_builddir}/xterm-%{version}/package/debian/copyright %{buildroot}/usr/share
 /usr/share/pixmaps/xterm-color_48x48.xpm
 /usr/share/pixmaps/xterm_32x32.xpm
 /usr/share/pixmaps/xterm_48x48.xpm
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/xterm/686848157be92045c2693736fe71dbb6a457b289
-/usr/share/package-licenses/xterm/c6e2b160c6474097e940845a879577a9ab37ba39
 
 %files man
 %defattr(0644,root,root,0755)
