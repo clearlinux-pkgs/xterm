@@ -1,22 +1,27 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #378 - 2023/01/09
+                            Patch #379 - 2023/02/15
 
-     * improve  descriptions  of  XTQMODKEYS  and  XTQALLOWED  features in
-       ctlseqs.ms (reports by Bram Moolenaar, Thomas Wolff).
-     * add bracketed+paste and report+version building blocks to terminfo,
-       from ncurses 6.4
-     * improve   check   for   unsupported  formatting  characters,  e.g.,
-       zero-width space, to properly ignore them (report by Thomas Wolff).
-     * improve/document  error-checking  for  some  of  the controls which
-       return   responses:   DECRQSS,   XTGETXRES,   XTSETTCAP,  XTGETTCAP
-       (prompted by discussion with David Leadbeater).
-     * improve  limit-checks  for fallback font cache (report by Dimitrije
-       Erdeljan).
-     * improve check for too-wide glyph in fallback font by allowing xterm
-       to  continue searching for a suitable font rather than just failing
-       on  the first. Also add limitFontWidth to allow changing the amount
-       by  which  a  glyph  must extend outside the font's bounding box to
-       disallow it.
+     * improve text-cursor (patch by Jan Engelhardt):
+          + allow selecting CURSOR_BAR mode from command-line/Xresources.
+          + draw  cursor  using  filled  rectangle  instead  of  rectangle
+            outline to permit thicker underlines/bars.
+          + scale up cursor relative to font size.
+     * improve readline modes (Fedora #2166860):
+          + document readline modes
+          + change the feature to configure by default
+          + replace hard-coded SS3 for cursor movement with current mode
+          + replace hard-coded erase/lnext characters with current values
+     * improve status-line (report by Thomas Wolff):
+          + RIS turns off status-line
+          + Right-margin  (DECLRMM  and DECSLRM) limits the length of text
+            written/updated in the status-line.
+          + Most  controls which affect the whole screen are ignored while
+            updating the status-line.
+     * modify  configure check for tgetent to allow for some special cases
+       of ncurses configuration (report by Satadru Pramani).
+     * reduce  timeout,  improve  warning  message  if  resize is run on a
+       terminal which is not VT100-compatible.
+     * reduce compiler warnings in configure script.
 

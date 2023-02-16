@@ -7,4 +7,4 @@ libXt.so.6
 libc.so.6
 libfontconfig.so.1
 libfreetype.so.6
-libtinfo.so.6
+libtinfow.so.6

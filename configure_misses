@@ -34,7 +34,6 @@ Configure miss: if you want support for HP-style function keys
 Configure miss: if you want support for SCO-style function keys
 Configure miss: if you want support for load-vt-fonts
 Configure miss: if you want support for logging
-Configure miss: if you want support for mouse in readline applications
 Configure miss: if you want support for status-line
 Configure miss: if you want to allow spawning new xterms
 Configure miss: if you want to compile-in icon data

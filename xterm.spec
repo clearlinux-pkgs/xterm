@@ -5,16 +5,17 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 378
-Release  : 37
-URL      : https://invisible-mirror.net/archives/xterm/xterm-378.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-378.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-378.tgz.asc
+Version  : 379
+Release  : 38
+URL      : https://invisible-mirror.net/archives/xterm/xterm-379.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-379.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-379.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
-License  : X11
+License  : MIT X11
 Requires: xterm-bin = %{version}-%{release}
 Requires: xterm-data = %{version}-%{release}
+Requires: xterm-license = %{version}-%{release}
 Requires: xterm-man = %{version}-%{release}
 BuildRequires : cppcheck
 BuildRequires : ctags
@@ -62,6 +63,7 @@ for the program and its resource class, to avoid conflict with other packages.
 Summary: bin components for the xterm package.
 Group: Binaries
 Requires: xterm-data = %{version}-%{release}
+Requires: xterm-license = %{version}-%{release}
 
 %description bin
 bin components for the xterm package.
@@ -75,6 +77,14 @@ Group: Data
 data components for the xterm package.
 
 
+%package license
+Summary: license components for the xterm package.
+Group: Default
+
+%description license
+license components for the xterm package.
+
+
 %package man
 Summary: man components for the xterm package.
 Group: Default
@@ -84,15 +94,15 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-378
-cd %{_builddir}/xterm-378
+%setup -q -n xterm-379
+cd %{_builddir}/xterm-379
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673294793
+export SOURCE_DATE_EPOCH=1676519294
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,8 +115,11 @@ export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonl
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1673294793
+export SOURCE_DATE_EPOCH=1676519294
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/xterm
+cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb || :
+cp %{_builddir}/xterm-%{version}/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/4094ca68b138cda87c9fcbcb4f9975b975ef4c4c || :
 %make_install
 
 %files
@@ -135,6 +148,11 @@ rm -rf %{buildroot}
 /usr/share/pixmaps/xterm-color_48x48.xpm
 /usr/share/pixmaps/xterm_32x32.xpm
 /usr/share/pixmaps/xterm_48x48.xpm
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/xterm/4094ca68b138cda87c9fcbcb4f9975b975ef4c4c
+/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb
 
 %files man
 %defattr(0644,root,root,0755)
