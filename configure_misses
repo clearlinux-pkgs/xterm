@@ -1,76 +1,152 @@
 Configure miss: IRIX 6.5 baud-rate redefinitions
+Configure miss: IRIX 6.5 baud-rate redefinitions
+Configure miss: XKB Bell extension
 Configure miss: XKB Bell extension
 Configure miss: bluit
+Configure miss: bluit
+Configure miss: directory to install icons
 Configure miss: directory to install icons
 Configure miss: exctags
+Configure miss: exctags
+Configure miss: exetags
 Configure miss: exetags
 Configure miss: full tgetent function
+Configure miss: full tgetent function
+Configure miss: ggrep
 Configure miss: ggrep
 Configure miss: if alt should send ESC
+Configure miss: if alt should send ESC
+Configure miss: if backarrow-key should be treated as erase
 Configure miss: if backarrow-key should be treated as erase
 Configure miss: if external errno exists
+Configure miss: if external errno exists
+Configure miss: if external sys_errlist exists
 Configure miss: if external sys_errlist exists
 Configure miss: if external sys_errlist is declared
+Configure miss: if external sys_errlist is declared
+Configure miss: if external sys_nerr exists
 Configure miss: if external sys_nerr exists
 Configure miss: if external sys_nerr is declared
+Configure miss: if external sys_nerr is declared
+Configure miss: if icon theme should be used
 Configure miss: if icon theme should be used
 Configure miss: if meta should send ESC
+Configure miss: if meta should send ESC
+Configure miss: if rpath-hack should be disabled
 Configure miss: if rpath-hack should be disabled
 Configure miss: if the POSIX test-macros are already defined
+Configure miss: if the POSIX test-macros are already defined
+Configure miss: if this is an SVR4 system
 Configure miss: if this is an SVR4 system
 Configure miss: if this is really Clang C compiler
+Configure miss: if this is really Clang C compiler
+Configure miss: if this is really Intel C compiler
 Configure miss: if this is really Intel C compiler
 Configure miss: if utmp.ut_syslen is declared
+Configure miss: if utmp.ut_syslen is declared
+Configure miss: if we should define SYSV
 Configure miss: if we should define SYSV
 Configure miss: if you want DECterm Locator support
+Configure miss: if you want DECterm Locator support
+Configure miss: if you want ReGIS graphics support
 Configure miss: if you want ReGIS graphics support
 Configure miss: if you want debugging traces
+Configure miss: if you want debugging traces
+Configure miss: if you want dynamic-abbreviation support
 Configure miss: if you want dynamic-abbreviation support
 Configure miss: if you want magic cookie emulation
+Configure miss: if you want magic cookie emulation
+Configure miss: if you want only 16-bit character support
 Configure miss: if you want only 16-bit character support
 Configure miss: if you want pulldown menus with a toolbar
+Configure miss: if you want pulldown menus with a toolbar
+Configure miss: if you want sixel screen dump support
 Configure miss: if you want sixel screen dump support
 Configure miss: if you want support for HP-style function keys
+Configure miss: if you want support for HP-style function keys
+Configure miss: if you want support for SCO-style function keys
 Configure miss: if you want support for SCO-style function keys
 Configure miss: if you want support for load-vt-fonts
+Configure miss: if you want support for load-vt-fonts
+Configure miss: if you want support for logging
 Configure miss: if you want support for logging
 Configure miss: if you want support for status-line
+Configure miss: if you want support for status-line
+Configure miss: if you want to allow spawning new xterms
 Configure miss: if you want to allow spawning new xterms
 Configure miss: if you want to compile-in icon data
+Configure miss: if you want to compile-in icon data
+Configure miss: if you want to disable openpty
 Configure miss: if you want to disable openpty
 Configure miss: if you want to disable setgid
+Configure miss: if you want to disable setgid
+Configure miss: if you want to disable setuid
 Configure miss: if you want to disable setuid
 Configure miss: if you want to enable double-buffering in default resources
+Configure miss: if you want to enable double-buffering in default resources
+Configure miss: if you want to link with Athena-Plus library
 Configure miss: if you want to link with Athena-Plus library
 Configure miss: if you want to link with Xaw 3d library
+Configure miss: if you want to link with Xaw 3d library
+Configure miss: if you want to link with Xaw 3d xft library
 Configure miss: if you want to link with Xaw 3d xft library
 Configure miss: if you want to link with neXT Athena library
+Configure miss: if you want to link with neXT Athena library
+Configure miss: if you want to link with utempter
 Configure miss: if you want to link with utempter
 Configure miss: if you want to perform memory-leak testing
+Configure miss: if you want to perform memory-leak testing
+Configure miss: if you want to run xterm setgid to match utmp/utmpx file
 Configure miss: if you want to run xterm setgid to match utmp/utmpx file
 Configure miss: if you want to run xterm setuid to a given user
+Configure miss: if you want to run xterm setuid to a given user
+Configure miss: if you want to turn on gcc warnings
 Configure miss: if you want to turn on gcc warnings
 Configure miss: if you want to use C11 _Noreturn feature
+Configure miss: if you want to use C11 _Noreturn feature
+Configure miss: if you want to use PCRE for regular-expressions
 Configure miss: if you want to use PCRE for regular-expressions
 Configure miss: if you want to use PCRE2 for regular-expressions
+Configure miss: if you want to use PCRE2 for regular-expressions
+Configure miss: if you want to use dbmalloc for testing
 Configure miss: if you want to use dbmalloc for testing
 Configure miss: if you want to use dmalloc for testing
+Configure miss: if you want to use dmalloc for testing
+Configure miss: if you want to use mini-luit/Latin9 built-in support
 Configure miss: if you want to use mini-luit/Latin9 built-in support
 Configure miss: if you want to use valgrind for testing
+Configure miss: if you want to use valgrind for testing
+Configure miss: imake
 Configure miss: imake
 Configure miss: lint
+Configure miss: lint
+Configure miss: luit
 Configure miss: luit
 Configure miss: man2html
+Configure miss: man2html
+Configure miss: mawk
 Configure miss: mawk
 Configure miss: ncurses/curses.h
+Configure miss: ncurses/curses.h
+Configure miss: ncurses/term.h
 Configure miss: ncurses/term.h
 Configure miss: private terminfo-directory
+Configure miss: private terminfo-directory
+Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: struct lastlog
+Configure miss: struct lastlog
+Configure miss: sys/ptem.h
 Configure miss: sys/ptem.h
 Configure miss: usable Xaw/Xmu package
+Configure miss: usable Xaw/Xmu package
+Configure miss: usable Xft/fontconfig package
 Configure miss: usable Xft/fontconfig package
 Configure miss: xterm
 Configure miss: xterm
+Configure miss: xterm
+Configure miss: xterm
+Configure miss: xterm-filter
+Configure miss: xterm-filter
 Configure miss: xterm-filter
 Configure miss: xterm-filter

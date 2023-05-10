@@ -1,5 +1,5 @@
 PKG_NAME := xterm
-URL = https://invisible-mirror.net/archives/xterm/xterm-379.tgz
+URL = https://invisible-mirror.net/archives/xterm/xterm-380.tgz
 ARCHIVES = 
 
 include ../common/Makefile.common
