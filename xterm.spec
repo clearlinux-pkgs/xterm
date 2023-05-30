@@ -7,7 +7,7 @@
 #
 Name     : xterm
 Version  : 381
-Release  : 40
+Release  : 41
 URL      : https://invisible-mirror.net/archives/xterm/xterm-381.tgz
 Source0  : https://invisible-mirror.net/archives/xterm/xterm-381.tgz
 Source1  : https://invisible-mirror.net/archives/xterm/xterm-381.tgz.asc
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685407599
+export SOURCE_DATE_EPOCH=1685478682
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -130,7 +130,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1685407599
+export SOURCE_DATE_EPOCH=1685478682
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb || :
