@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 381
-Release  : 41
-URL      : https://invisible-mirror.net/archives/xterm/xterm-381.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-381.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-381.tgz.asc
+Version  : 382
+Release  : 42
+URL      : https://invisible-mirror.net/archives/xterm/xterm-382.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-382.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-382.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : MIT X11
@@ -96,10 +96,10 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-381
-cd %{_builddir}/xterm-381
+%setup -q -n xterm-382
+cd %{_builddir}/xterm-382
 pushd ..
-cp -a xterm-381 buildavx2
+cp -a xterm-382 buildavx2
 popd
 
 %build
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685478682
+export SOURCE_DATE_EPOCH=1685544090
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -130,10 +130,9 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1685478682
+export SOURCE_DATE_EPOCH=1685544090
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
-cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb || :
 cp %{_builddir}/xterm-%{version}/package/debian/copyright %{buildroot}/usr/share/package-licenses/xterm/4094ca68b138cda87c9fcbcb4f9975b975ef4c4c || :
 pushd ../buildavx2/
 %make_install_v3
@@ -177,7 +176,6 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/xterm/4094ca68b138cda87c9fcbcb4f9975b975ef4c4c
-/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb
 
 %files man
 %defattr(0644,root,root,0755)
