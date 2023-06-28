@@ -1,13 +1,24 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #382 - 2023/05/30
+                            Patch #383 - 2023/06/27
 
-     * amend change to CursorBack in patch #380, allowing the result to be
-       on  the  hidden  right-half  of  double-cell  characters (report by
-       Rajeev V. Pillai).
-     * amend  xtermDrawString, fixing regression with --disable-wide-chars
-       configuration from patch #380.
-     * corrected   pathname   for  run-tic.sh,  for  full  install  in  an
-       out-of-tree build (report by Rajeev V. Pillai).
+     * expand description of full- and soft-reset in the manual.
+     * fixes for full- and soft-reset:
+          + clear alternate screen on full reset.
+          + disable  menu-entry  for  active icon; it merely shows whether
+            the feature is enabled.
+          + use  appcursorDefault and appkeypadDefault resources for reset
+            of DECCKM and DECKPM.
+          + save   initial   resource   values   for   sixelScrolling  and
+            privateColorRegisters, using those in full reset.
+          + update  checkbox  for Enable Blinking Cursor (report by Rajeev
+            V. Pillai).
+     * add reply for DECSACE with DECRQSS.
+     * modify status-line feature to exit without erasing for DECSTR.
+     * add private mode 1045 which imitates the original xterm cursor-back
+       reverse wrapping mode 45 (see patch #380).
+     * improve checks for non-Unicode values, e.g., in DECRQCRA.
+     * re-checkout  from  RCS  archive to fix stale identifiers (report by
+       Sven Joachim).
 
