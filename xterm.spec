@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 383
-Release  : 43
-URL      : https://invisible-mirror.net/archives/xterm/xterm-383.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-383.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-383.tgz.asc
+Version  : 384
+Release  : 44
+URL      : https://invisible-mirror.net/archives/xterm/xterm-384.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-384.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-384.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : MIT X11
@@ -96,10 +96,10 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-383
-cd %{_builddir}/xterm-383
+%setup -q -n xterm-384
+cd %{_builddir}/xterm-384
 pushd ..
-cp -a xterm-383 buildavx2
+cp -a xterm-384 buildavx2
 popd
 
 %build
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1687972188
+export SOURCE_DATE_EPOCH=1689093963
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -130,7 +130,7 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1687972188
+export SOURCE_DATE_EPOCH=1689093963
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb || :

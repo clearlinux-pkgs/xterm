@@ -1,24 +1,15 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #383 - 2023/06/27
+                            Patch #384 - 2023/07/10
 
-     * expand description of full- and soft-reset in the manual.
-     * fixes for full- and soft-reset:
-          + clear alternate screen on full reset.
-          + disable  menu-entry  for  active icon; it merely shows whether
-            the feature is enabled.
-          + use  appcursorDefault and appkeypadDefault resources for reset
-            of DECCKM and DECKPM.
-          + save   initial   resource   values   for   sixelScrolling  and
-            privateColorRegisters, using those in full reset.
-          + update  checkbox  for Enable Blinking Cursor (report by Rajeev
-            V. Pillai).
-     * add reply for DECSACE with DECRQSS.
-     * modify status-line feature to exit without erasing for DECSTR.
-     * add private mode 1045 which imitates the original xterm cursor-back
-       reverse wrapping mode 45 (see patch #380).
-     * improve checks for non-Unicode values, e.g., in DECRQCRA.
-     * re-checkout  from  RCS  archive to fix stale identifiers (report by
-       Sven Joachim).
+     * exclude  ASCII  space  from  showMissingGlyphs,  since a few bitmap
+       fonts lack this (report by "SanRemo", Emanuel Haupt).
+     * correct   a   step   in   rendering  double-width  characters  with
+       bitmap-fonts (report by Peter Fabinski, Debian #1039986).
+     * fixes for ReGIS-related problems (report by Ben Wong):
+          + mimic  an  undocumented  hardware  VT340 feature which handles
+            color initialization with incomplete parameters.
+          + handle whitespace between operator/operands for color values.
+          + reset ReGIS-context when resetting graphics in RIS.
 
