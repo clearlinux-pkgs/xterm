@@ -7,7 +7,7 @@
 #
 Name     : xterm
 Version  : 384
-Release  : 44
+Release  : 45
 URL      : https://invisible-mirror.net/archives/xterm/xterm-384.tgz
 Source0  : https://invisible-mirror.net/archives/xterm/xterm-384.tgz
 Source1  : https://invisible-mirror.net/archives/xterm/xterm-384.tgz.asc
