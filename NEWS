@@ -1,15 +1,33 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #384 - 2023/07/10
+                            Patch #385 - 2023/10/01
 
-     * exclude  ASCII  space  from  showMissingGlyphs,  since a few bitmap
-       fonts lack this (report by "SanRemo", Emanuel Haupt).
-     * correct   a   step   in   rendering  double-width  characters  with
-       bitmap-fonts (report by Peter Fabinski, Debian #1039986).
-     * fixes for ReGIS-related problems (report by Ben Wong):
-          + mimic  an  undocumented  hardware  VT340 feature which handles
-            color initialization with incomplete parameters.
-          + handle whitespace between operator/operands for color values.
-          + reset ReGIS-context when resetting graphics in RIS.
+     * fixes for ReGIS (report by Ben Wong).
+          + correct conversion from HLS to RGB
+          + improve font-caching performance.
+     * update tables in wcwidth.c based on Unicode 15.1.0
+     * improve fastScroll resource:
+          + suppress screen-refreshes for carriage-returns
+          + add -jf option to simplify use of this resource.
+          + add a control sequence for enabling/disabling the resource.
+          + enable this feature by default
+     * extend  title-stack  feature  to  allow  an additional parameter to
+       directly  access  the  stack, like the XTPUSHCOLORS and XTPOPCOLORS
+       feature.
+     * correct  size  and  position of box shown for double-cell character
+       which  happens  to be missing from the bitmap font (report by Peter
+       Fabinski).
+     * improved configure script:
+          + add  pattern for uClibc-ng to CF_XOPEN_SOURCE (report/patch by
+            Waldemar Brodkorb).
+          + add configure options --with-utmp-path and --with-wtmp-path to
+            override  configure  script's  check  for  utmp/wtmp pathnames
+            which are shown in the manual (Debian #1042767).
+          + CF_XOPEN_SOURCE  provides  for  defining  _DEFAULT_SOURCE  for
+            MinGW32 and MinGW64.
+          + sed expression used to report gcc version now works with MinGW
+     * ensure   that  line-attributes  are  reset  after  drawing  missing
+       character (report by Christian Weisgerber).
+     * update config.guess, config.sub
 
