@@ -1,33 +1,16 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #385 - 2023/10/01
+                            Patch #386 - 2023/10/09
 
-     * fixes for ReGIS (report by Ben Wong).
-          + correct conversion from HLS to RGB
-          + improve font-caching performance.
-     * update tables in wcwidth.c based on Unicode 15.1.0
-     * improve fastScroll resource:
-          + suppress screen-refreshes for carriage-returns
-          + add -jf option to simplify use of this resource.
-          + add a control sequence for enabling/disabling the resource.
-          + enable this feature by default
-     * extend  title-stack  feature  to  allow  an additional parameter to
-       directly  access  the  stack, like the XTPUSHCOLORS and XTPOPCOLORS
-       feature.
-     * correct  size  and  position of box shown for double-cell character
-       which  happens  to be missing from the bitmap font (report by Peter
-       Fabinski).
-     * improved configure script:
-          + add  pattern for uClibc-ng to CF_XOPEN_SOURCE (report/patch by
-            Waldemar Brodkorb).
-          + add configure options --with-utmp-path and --with-wtmp-path to
-            override  configure  script's  check  for  utmp/wtmp pathnames
-            which are shown in the manual (Debian #1042767).
-          + CF_XOPEN_SOURCE  provides  for  defining  _DEFAULT_SOURCE  for
-            MinGW32 and MinGW64.
-          + sed expression used to report gcc version now works with MinGW
-     * ensure   that  line-attributes  are  reset  after  drawing  missing
-       character (report by Christian Weisgerber).
-     * update config.guess, config.sub
+     * improve  references  in  ctlseqs.ms  (prompted  by  discussion with
+       Kirill Chibisov).
+     * make  the  maximum  amount of memory used for buffering DCS and OSC
+       strings configurable with maxStringParse resource (report by Daniel
+       Franke).
+     * improve performance of ReGIS when initializing the largest fontsize
+       (report by Ben Wong).
+     * fix  regression  in  SIXEL  colors,  in patch #385 (report/patch by
+       Jonny Langley).
+     * fix typo in --with-wtmp (report/patch by Sven Joachim)
 

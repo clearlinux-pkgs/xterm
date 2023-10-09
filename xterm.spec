@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 385
-Release  : 46
-URL      : https://invisible-mirror.net/archives/xterm/xterm-385.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-385.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-385.tgz.asc
+Version  : 386
+Release  : 47
+URL      : https://invisible-mirror.net/archives/xterm/xterm-386.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-386.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-386.tgz.asc
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
 License  : MIT X11
@@ -96,10 +96,10 @@ man components for the xterm package.
 
 
 %prep
-%setup -q -n xterm-385
-cd %{_builddir}/xterm-385
+%setup -q -n xterm-386
+cd %{_builddir}/xterm-386
 pushd ..
-cp -a xterm-385 buildavx2
+cp -a xterm-386 buildavx2
 popd
 
 %build
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1696271541
+export SOURCE_DATE_EPOCH=1696867515
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -150,7 +150,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1696271541
+export SOURCE_DATE_EPOCH=1696867515
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/e93c812d7c561104fbcdbb553ac56a35f113dfbb || :
