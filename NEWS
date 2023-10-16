@@ -1,16 +1,10 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #386 - 2023/10/09
+                            Patch #387 - 2023/10/15
 
-     * improve  references  in  ctlseqs.ms  (prompted  by  discussion with
-       Kirill Chibisov).
-     * make  the  maximum  amount of memory used for buffering DCS and OSC
-       strings configurable with maxStringParse resource (report by Daniel
-       Franke).
-     * improve performance of ReGIS when initializing the largest fontsize
-       (report by Ben Wong).
-     * fix  regression  in  SIXEL  colors,  in patch #385 (report/patch by
-       Jonny Langley).
-     * fix typo in --with-wtmp (report/patch by Sven Joachim)
+     * add DECRQUPSS and DECAUPSS.
+     * add DECRQDE (report by Jake Hamby).
+     * correct indexing expression in title-stack, from patch #385 changes
+       (report by Brian Lindholm).
 
