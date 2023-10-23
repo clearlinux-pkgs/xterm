@@ -1,10 +1,13 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #387 - 2023/10/15
+                            Patch #388 - 2023/10/22
 
-     * add DECRQUPSS and DECAUPSS.
-     * add DECRQDE (report by Jake Hamby).
-     * correct indexing expression in title-stack, from patch #385 changes
-       (report by Brian Lindholm).
+     * improve  disallowPasteControls by adding a category for the special
+       characters  known  to  stty  (prompted  by  discussion  with  David
+       Leadbeater).
+     * amend  support  of  DECAUPSS,  undoing  change to initialization of
+       G2/G3   so   that   pasting   of   GR   characters  works  properly
+       (report/analysis by Petri Kaukasoina).
+     * update config.guess, config.sub
 
