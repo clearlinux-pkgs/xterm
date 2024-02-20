@@ -1,38 +1,35 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #389 - 2024/01/01
+                            Patch #390 - 2024/02/19
 
-     * interchange  variables  in subparameter parsing, fixing a bug where
-       subparameters  after  the  first  parameter  could be misidentified
-       (patch by Adam Saponara).
-     * correct  popping of icon/window titles in a case where only one was
-       pushed from patch #385 changes.
-     * add XTQMODKEYS response in DECRQSS, as alternative for vim.
-     * correct  DECCIR encoded information on character set size, handle a
-       VT525 quirk, and add DECST8C (Windows Terminal #14984).
-     * improve  DECRQCRA  (prompted  by  discussion with James Holderness,
-       Windows Terminal #14974).
-     * add part of VT525 color controls:
-          + DECAC,  to  update  default  foreground/background, respond to
-            DECRQSS
-          + DECATC, to respond with DECRQSS
-     * prevent  Unicode  non-characters  from  being  printed (prompted by
-       patch by Grady Martin).
-     * modify  send_SGR()  to  avoid modifying colors 16 to 255 in printed
-       output (patch by Grady Martin).
-     * minor cleanup of miscellaneous error-codes with ERROR_MISC.
-     * remove legacy CSI 53 for locator status, corrected in patch #294.
-     * modify  DECRQUPSS  and  DECAUPSS feature to support VT5xx character
-       sets (report by Thomas Wolff).
-     * improve configure script:
-          + reduce  configure-check compiler warnings (prompted by Florian
-            Weimer, Redhat #2251945)
-          + improve  usage messages in configure script to make it clearer
-            when an option value is optional.
-     * improve EWMH handling (report/analysis by Edward Rosten)
-          + reset  _NET_WM_STATE_HIDDEN  flag  from  _NET_WM_STATE  before
-            mapping the window to deiconify.
-          + cache  X  properties  to reduce latency (adapted from patch by
-            Edward Rosten).
+     * improve  typography  of  control-sequences page (patches by Branden
+       Robinson).
+     * amend   UPSS  change  from  patch  #389,  fixing  a  regression  in
+       VT100/VT220 character sets.
+     * modify ANSI conformance per ECMA-43 and DEC 070:
+          + set ANSI conformance level to 3 for DEC levels 2 and up.
+          + disable locking shifts in level 1, e.g., VT100.
+          + disable single-shifts from G2/G3 in level 1.
+          + use UPSS for G2/G3 in levels 2 and up.
+     * modify invisible-character attribute to permit DECRQCRA to report a
+       consistent checksum (report/testcase by Thomas Wolff).
+     * align  terminfo building blocks in terminfo to correspond to recent
+       refactoring/trimming in ncurses.
+     * set flag in regexec call for onNClicks to handle “^” anchor (patch
+       by Matthew Martin).
+     * add  line-drawing  data  for  the characters in DEC Technical which
+       have no Unicode equivalents.
+     * remove a special case in encode_scs which made xterm report Latin-1
+       when  encoding  is  set  to  UTF-8,  where  ASCII  is  the selected
+       character  set.  This  fixes a regression in vttest for the DECRSPS
+       cursor test.
+     * correct  values  for  Ps of DECAUPSS in ctlseqs.ms (report by James
+       Holderness).
+     * simplify/correct  expression  for  checking  Unicode non-characters
+       (report by Thomas Wolff).
+     * correct  loop  for  trimming environment variables (report/patch by
+       Casper Dik).
+     * fixes for manpage formatting (Debian #1041809).
+     * update config.guess, config.sub
 
