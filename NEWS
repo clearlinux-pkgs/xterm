@@ -1,35 +1,25 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #390 - 2024/02/19
+                            Patch #391 - 2024/05/12
 
-     * improve  typography  of  control-sequences page (patches by Branden
-       Robinson).
-     * amend   UPSS  change  from  patch  #389,  fixing  a  regression  in
-       VT100/VT220 character sets.
-     * modify ANSI conformance per ECMA-43 and DEC 070:
-          + set ANSI conformance level to 3 for DEC levels 2 and up.
-          + disable locking shifts in level 1, e.g., VT100.
-          + disable single-shifts from G2/G3 in level 1.
-          + use UPSS for G2/G3 in levels 2 and up.
-     * modify invisible-character attribute to permit DECRQCRA to report a
-       consistent checksum (report/testcase by Thomas Wolff).
-     * align  terminfo building blocks in terminfo to correspond to recent
-       refactoring/trimming in ncurses.
-     * set flag in regexec call for onNClicks to handle “^” anchor (patch
-       by Matthew Martin).
-     * add  line-drawing  data  for  the characters in DEC Technical which
-       have no Unicode equivalents.
-     * remove a special case in encode_scs which made xterm report Latin-1
-       when  encoding  is  set  to  UTF-8,  where  ASCII  is  the selected
-       character  set.  This  fixes a regression in vttest for the DECRSPS
-       cursor test.
-     * correct  values  for  Ps of DECAUPSS in ctlseqs.ms (report by James
-       Holderness).
-     * simplify/correct  expression  for  checking  Unicode non-characters
-       (report by Thomas Wolff).
-     * correct  loop  for  trimming environment variables (report/patch by
-       Casper Dik).
-     * fixes for manpage formatting (Debian #1041809).
-     * update config.guess, config.sub
+     * improve integration between UTF-8 and allowC1Printable.
+     * alter  SIXEL  HLS  computation to make blue 0 degrees (patch by Ben
+       Wong).
+     * disable SIXEL aspect-ratio, pending a rewrite (patch by Ben Wong).
+     * add resource incrementalGraphics (prompted by patch by Ben Wong).
+     * reorganize  graphics_sixel.c  as a step toward eliminating graphics
+       buffer-size (integrated patch by Ben Wong).
+     * use __linux__ consistently rather than the older linux.
+     * build-fix  for musl (report by Jonáš Vidra, adapted patch by Khem
+       Raj):
+          + modify  ifdef  for USE_OPENPTY, changing test for __GLIBC__ to
+            __linux__
+          + change ifdef's for _POSIX_SOURCE to _POSIX_VERSION
+          + modify  ifdef  for  setsid to use a configure-script check for
+            that  function's  existence  and  move  the old check to imake
+            fallbacks.
+     * minor consistency fixes for manpage.
+     * fix   regression   in   patch  #390:  non-UTF8  text  pasted  as  a
+       XA_UTF8_STRING was not decoded (report by Petri Kaukasoina).
 
