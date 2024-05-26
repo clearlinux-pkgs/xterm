@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xCC2AF4472167BE03 (dickey@his.com)
 #
 Name     : xterm
-Version  : 391
-Release  : 52
-URL      : https://invisible-mirror.net/archives/xterm/xterm-391.tgz
-Source0  : https://invisible-mirror.net/archives/xterm/xterm-391.tgz
-Source1  : https://invisible-mirror.net/archives/xterm/xterm-391.tgz.asc
+Version  : 392
+Release  : 53
+URL      : https://invisible-mirror.net/archives/xterm/xterm-392.tgz
+Source0  : https://invisible-mirror.net/archives/xterm/xterm-392.tgz
+Source1  : https://invisible-mirror.net/archives/xterm/xterm-392.tgz.asc
 Source2  : CC2AF4472167BE03.pkey
 Summary  : X terminal emulator (development version)
 Group    : Development/Tools
@@ -105,10 +105,10 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) CC2AF4472167BE03' gpg.status
-%setup -q -n xterm-391
-cd %{_builddir}/xterm-391
+%setup -q -n xterm-392
+cd %{_builddir}/xterm-392
 pushd ..
-cp -a xterm-391 buildavx2
+cp -a xterm-392 buildavx2
 popd
 
 %build
@@ -116,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1715632900
+export SOURCE_DATE_EPOCH=1716765654
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -161,7 +161,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1715632900
+export SOURCE_DATE_EPOCH=1716765654
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xterm
 cp %{_builddir}/xterm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xterm/63905ef968d32e883631b0563d8dd1da81b1391b || :

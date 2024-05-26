@@ -1,25 +1,19 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #391 - 2024/05/12
+                            Patch #392 - 2024/05/22
 
-     * improve integration between UTF-8 and allowC1Printable.
-     * alter  SIXEL  HLS  computation to make blue 0 degrees (patch by Ben
-       Wong).
-     * disable SIXEL aspect-ratio, pending a rewrite (patch by Ben Wong).
-     * add resource incrementalGraphics (prompted by patch by Ben Wong).
-     * reorganize  graphics_sixel.c  as a step toward eliminating graphics
-       buffer-size (integrated patch by Ben Wong).
-     * use __linux__ consistently rather than the older linux.
-     * build-fix  for musl (report by Jonáš Vidra, adapted patch by Khem
-       Raj):
-          + modify  ifdef  for USE_OPENPTY, changing test for __GLIBC__ to
-            __linux__
-          + change ifdef's for _POSIX_SOURCE to _POSIX_VERSION
-          + modify  ifdef  for  setsid to use a configure-script check for
-            that  function's  existence  and  move  the old check to imake
-            fallbacks.
-     * minor consistency fixes for manpage.
-     * fix   regression   in   patch  #390:  non-UTF8  text  pasted  as  a
-       XA_UTF8_STRING was not decoded (report by Petri Kaukasoina).
+     * improve  input decoding for non-Latin1 character sets by preserving
+       the sense of GL/GR.
+     * add  resource  preferLatin1  to simplify UPSS configuration (Gentoo
+       #932154).
+     * build-fix  for --disable-boxchars; patch #390 reuses that feature's
+       code  to draw the part of the DEC Technical character set which has
+       no Unicode equivalent.
+     * modify #include of pty.h to work with musl (report by Khem Raj).
+     * improve    definitions    used    in    clock_gettime    logic   in
+       graphics_sixel.c, as well as updating comments (patch by Ben Wong).
+     * amend allowC1Printable changes from patch #391, restoring a special
+       case  which  caused C1 characters to be ignored (report/testcase by
+       Dmytro Bagrii).
 
