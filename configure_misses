@@ -46,6 +46,8 @@ Configure miss: if utmp.ut_syslen is declared
 Configure miss: if utmp.ut_syslen is declared
 Configure miss: if we should define SYSV
 Configure miss: if we should define SYSV
+Configure miss: if we should use imake to help
+Configure miss: if we should use imake to help
 Configure miss: if you want DECterm Locator support
 Configure miss: if you want DECterm Locator support
 Configure miss: if you want ReGIS graphics support
@@ -116,8 +118,6 @@ Configure miss: if you want to use mini-luit/Latin9 built-in support
 Configure miss: if you want to use mini-luit/Latin9 built-in support
 Configure miss: if you want to use valgrind for testing
 Configure miss: if you want to use valgrind for testing
-Configure miss: imake
-Configure miss: imake
 Configure miss: lint
 Configure miss: lint
 Configure miss: luit
