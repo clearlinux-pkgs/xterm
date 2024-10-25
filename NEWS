@@ -1,16 +1,18 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #394 - 2024/09/02
+                            Patch #395 - 2024/10/24
 
-     * add -nomap option (request by Tavis Ormandy).
-     * improve checks for rectangle operations, per DEC 070.
-     * improve  check  for  missing characters in bitmap fonts, for a case
-       where  the  font  is marked complete but its range does not include
-       non-Latin1 codes (prompted by discussion with Craig Leres).
-     * correct  upper-limit  in  check  for missing characters, from patch
-       #393 changes (report/patch by Matthew Martin).
-     * fix  for  -report-fonts  option  when  the  font's  first character
-       position is nonzero (prompted by discussion with Craig Leres).
-     * add null-pointer check for a Heisenbug (Debian #1078255).
+     * add DECRQSS response for DECSTGLT, i.e., ANSI SGR color.
+     * add Russian and SCS NRCS character set mappings.
+     * remove obsolete code for OS390 and VMS.
+     * minor fixes to work with vttest 20240929's 7-bit parsing test.
+     * improve  DECRPM  responses  for  unsupported modes; those which are
+       valid  for  a  given DEC terminal are reported as permanently reset
+       rather than unknown.
+     * add JIS-Roman and JIS-Katakana character sets, for VT382.
+     * fix  typo  in  ctlseqs.ms note about function key vs DSR (report by
+       Michael Thomas Greer).
+     * formatting fixes for ctlseqs.ms (report by Mark Manning).
+     * update tables in wcwidth.c based on Unicode 16.0.0
 
