@@ -1,18 +1,18 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #395 - 2024/10/24
+                            Patch #396 - 2024/12/02
 
-     * add DECRQSS response for DECSTGLT, i.e., ANSI SGR color.
-     * add Russian and SCS NRCS character set mappings.
-     * remove obsolete code for OS390 and VMS.
-     * minor fixes to work with vttest 20240929's 7-bit parsing test.
-     * improve  DECRPM  responses  for  unsupported modes; those which are
-       valid  for  a  given DEC terminal are reported as permanently reset
-       rather than unknown.
-     * add JIS-Roman and JIS-Katakana character sets, for VT382.
-     * fix  typo  in  ctlseqs.ms note about function key vs DSR (report by
-       Michael Thomas Greer).
-     * formatting fixes for ctlseqs.ms (report by Mark Manning).
-     * update tables in wcwidth.c based on Unicode 16.0.0
+     * fix  stricter  warnings  provided  by  upcoming  gcc 15, as well as
+       NetBSD lint.
+     * modify  title-stack  test script, adding logging and command-replay
+       options. Improved the script with new controls:
+          + add XTTITLEPOS query to get position in title-stack.
+          + add DECRQSS for XTSMTITLE.
+     * correct  cursor-addressing  limit  for VT52 mode (report by Serguei
+       Fichel).
+     * amend  change in patch #395 for 7-bit parsing to allow UTF-8 titles
+       (report by Dmytro Bagril).
+     * portability fixes for configure script, from ncurses
+     * update config.guess, config.sub
 
