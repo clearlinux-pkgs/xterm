@@ -1,47 +1,18 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #398 - 2025/04/11
+                            Patch #399 - 2025/05/18
 
-     * modify  DECFRA  and  DECRQCRA  to handle NRCS and ISO character set
-       mappings.
-     * ensure  that the cursor GC is updated when switching between normal
-       and italic fonts (report/testcase by Peter Fabinski).
-     * reduce overflow in scaling of ReGIS coordinates (report/testcase by
-       Robert L Masterson).
-     * improve permissions-check for valid shell program.
-     * extend   modifyOtherKeys   and   formatOtherKeys   to  the  various
-       categories  of  special  keys,  i.e.,  cursor-keys,  function-keys,
-       keypad-keys, modifier-keys and (other) special-keys.
-          + review/extend  convmap.pl  to  handle  all  of  the X11 keysym
-            definitions in keysym2ucs.
-          + keysyms which do not correspond to Unicode character codes are
-            mapped to Unicode private use areas in the BMP and plane 15.
-          + add/extend   control   sequences   for  the  new  format-  and
-            modify-resources.
-     * fix  copy/paste  error  in  configure  script  for default value of
-       --enable-block-select (report by Vincent Lefèvre).
-     * revise keysym2ucs.c, to provide mapping to/from the Unicode private
-       use  area  for  non-character  keysyms. Also remove redundant items
-       from keysym.map.
-     * improve  modifyOtherKeys, by providing the UCS value for keys which
-       have no single-byte representation (Debian #1093056).
-     * add two extensions to modifyOtherKeys:
-          + setting  modifyOtherKeys  to  3  makes all keyboard input send
-            escape  sequences,  using  parameter  1 where no modifiers are
-            given.
-          + a subparameter can be added to the XTMODKEYS control sequence,
-            telling  xterm  to  factor-out the corresponding modifier mask
-            from available parameters in the modifyOtherKeys feature.
-     * add  items  ColumnMode  and  StatusLine  to  disallowWindowOps, for
-       DECCOLM,  DECANM  and DECSASD, DECSSDT respectively (report by Sami
-       Farin).
-     * fix several minor issues reported by Coverity.
-     * add  ColorEvents resource to provide a way for applications to send
-       a  client  message  which  can  modify  the  default foreground and
-       background colors (adapted from patch by Claes Nästén).
-     * add  special  case  for  displaying  an error for CAN (cancel) when
-       emulating VT100 (prompted by discussion with Thomas Wolff).
-     * correct  the  size  of  a CellData buffer in xtermReportSGR seen in
-       ASAN2 (report by Sami Farin).
+     * add configure check for inline, for c89 support.
+     * further  improve  integration  between  UTF-8  and allowC1Printable
+       (report by Matthieu Herrb).
+     * modify  one  of  the missing-character checks to prefer Xft's check
+       over   the   check  for  missing  line-drawing  characters  (Debian
+       #1084794).
+     * align  terminfo building blocks in terminfo to correspond to recent
+       refactoring/trimming in ncurses.
+     * revise a limit-check in selection to fix a regression in patch #398
+       (Debian #1105738).
+     * modify  configure  check  for  Xft  to work around recent change to
+       fontconfig's pkg-config file (Gentoo #953864).
 
