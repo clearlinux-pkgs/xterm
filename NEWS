@@ -1,11 +1,17 @@
 The NEWS file was generated from xterm.log.html, which serves as the changelog
 for xterm.
 --------------------------------------------------------------------------------
-                            Patch #400 - 2025/06/15
+                            Patch #401 - 2025/07/02
 
-     * improve configure check for X libraries to reduce duplicates.
-     * amend  fix  for  (Debian  #1084794  to  ensure that non-linedrawing
-       characters are drawn with Xft (report by Robert Ross).
-     * simplify/consolidate copyright notices where those were redundant.
-     * update/improve cleanup of environment variables.
+     * adjust  reported  window-position by the shell window's border with
+       in XTWINOPS 13, for better match with the position set via XTWINOPS
+       3, fixing a mismatch seen with esctest.
+     * improve ifdef'ing of infrequently-configured features.
+     * add vttests/query-allowed.pl, to illustrate OSC 60, 61, and 62.
+     * add OSC 62, to provide a list of features which can be specified to
+       be disabled/enabled via resource settings or menus.
+     * restore  a  check needed for Debian #1084794, which was lost in the
+       changes for patch #400 (report by Sean C Farley).
+     * correct  spelling  for  "allowWindowOps"  in  OSC  61. The original
+       spelling "allowWinOps" is still accepted.
 
